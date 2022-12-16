@@ -33,6 +33,30 @@ root.render(<App />);
 ### 3) JSX
 
 -   우리가 JSX 코드로 작성하면 자동적으로 브라우저에서 작동하는 코드로 변환된다.
+-   package.json에는 수많은 dependency들이 있다. 그것들은 대부분 화면 뒷단에 있는 변환(transformation)을 다루고 있다. 하지만 리액트와 관련있는 두 가지 dependency가 있는데 그것은 바로 react, react-dom이다.
+-   index.js에서는 react-dom을 import하지만 프로젝트 어디에서도 react는 임포트하지 않는다. react 모듈은 create-react-app에서 생성된 리액트 프로젝트 셋업 시 import 된다.
+
+-   JSX를 사용하지 않으면 이렇게 작성해야 한다.
+
+```javascript
+// App.js
+
+return React.createElement(
+    "div",
+    {},
+    React.createElement("h2", {}, "Let's get started!"),
+    React.createElement(Expenses, { items: expenses })
+);
+
+// JSX
+
+// return (
+//     <div>
+//         <h2>Let's get started!</h2>
+//         <Expenses items={expenses} />
+//     </div>
+// );
+```
 
 <br><br>
 
