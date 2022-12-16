@@ -1,14 +1,20 @@
-function ExpenseItem() {
+import "./ExpenseItem.css";
+
+function ExpenseItem(props) {
+    const month = props.date.toLocaleString("ko-KR", { month: "long" });
+    const day = props.date.toLocaleString("ko-KR", { day: "2-digit" });
+    const year = props.date.getFullYear();
+
     return (
-        <div>
+        <div className="expense-item">
             <div>
-                <h2>Dec 16 2022</h2>
+                <div>{month}</div>
+                <div>{year}</div>
+                <div>{day}</div>
             </div>
-            <div>
-                <h2>Car Insurance</h2>
-            </div>
-            <div>
-                <h2>$204.76</h2>
+            <div className="expense-item__description">
+                <h2>{props.title}</h2>
+                <div className="expense-item__price">${props.amount}</div>
             </div>
         </div>
     );
