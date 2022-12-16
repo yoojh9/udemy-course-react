@@ -57,3 +57,34 @@ root.render(<App />);
 ### 3) props
 
 -   하위 컴포넌트에 데이터를 전달하기 위해서는 props를 이용한다.
+
+<br>
+
+### 4) Composition
+
+-   props.children은 예약어로 컴포넌트 태그 사이에 있는 컴포넌트를 가져올 수 있다.
+-   모달창이나 경고창과 같은 중복된 래퍼 컴포넌트를 추출하면 수많은 코드 중복을 피할 수 있게 해주고 다른 컴포넌트를 더 깔끔하게 유지할 수 있다.
+
+```javascript
+// ExpenseItem.js
+function ExpenseItem(props) {
+    return (
+        <Card>
+            <ExpenseDate date={props.date} />
+            <div className="expense-item__description">
+                <h2>{props.title}</h2>
+                <div className="expense-item__price">${props.amount}</div>
+            </div>
+        </Card>
+    );
+}
+
+export default ExpenseItem;
+
+// Card.js
+function Card(props) {
+    const classes = "card " + props.className;
+
+    return <div className={classes}>{props.children}</div>;
+}
+```
