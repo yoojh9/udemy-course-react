@@ -2,29 +2,36 @@ import { useState } from 'react';
 import './ExpenseForm.css'
 
 const ExpenseForm = () => {
-  // const [enteredTitle, setEnteredTitle] = useState('');
-  // const [enteredAmount, setEnteredAmount] = useState('');
-  // const [enteredDate, setEnteredDate] = useState('');
+  const [enteredTitle, setEnteredTitle] = useState('');
+  const [enteredAmount, setEnteredAmount] = useState('');
+  const [enteredDate, setEnteredDate] = useState('');
 
-  const [userInput, setUserInput] = useState({
-    enteredTitle: '',
-    enteredAmount: '',
-    enteredDate: ''
-  })
+  // const [userInput, setUserInput] = useState({
+  //   enteredTitle: '',
+  //   enteredAmount: '',
+  //   enteredDate: ''
+  // })
 
   const titleChangeHandler = (event) => {
-    //setEnteredTitle(event.target.value);
-    setUserInput({...userInput, enteredTitle: event.tager.value})
+    setEnteredTitle(event.target.value);
+
+    // O 이전 state에 의존하는 state 변경은 이렇게 하기
+    // setUserInput((prev) => {
+    //   return {...prev, enteredTitle: event.tager.value} 
+    // })
+
+    // X
+    //setUserInput({...userInput, enteredTitle: event.tager.value})
   }
 
   const amountChangeHandler = (event) => {
-    //setEnteredAmount(event.target.value);
-    setUserInput({...userInput, enteredAmount: event.tager.value})
+    setEnteredAmount(event.target.value);
+    // setUserInput({...userInput, enteredAmount: event.tager.value})
   }
 
   const dateChangeHandler = (event) => {
     //setEnteredDate(event.target.value);
-    setUserInput({...userInput, enteredDate: event.tager.value})
+    // setUserInput({...userInput, enteredDate: event.tager.value})
 
   }
 

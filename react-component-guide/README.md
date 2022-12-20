@@ -160,3 +160,26 @@ const Expenses = (props) => {
 
 export default Expenses;
 ```
+
+<br><br>
+
+### 2) 이전 State에 의존하는 State 업데이트
+
+- state 변경 시 아래와 같이 하는 게 아니라 setState에 함수를 전달해야 한다. 이전 snapshot을 이용해 새로운 state의 스냅샷을 반환해야 한다.
+
+<br>
+
+```javascript
+const [userInput, setUserInput] = useState();
+
+setUserInput({...userInput, title: 'abc'}) // (1) X
+
+setUserInput((prev) => {
+  return {...prev, title: 'abc'}  // (2) O
+})
+
+```
+<br>
+
+- 대부분 위 경우 모두 괜찮지만 리액트가 상태 업데이트 스케줄을 갖고 있어서 바로 실행되지 않을 수 있다. 이론적으로 동시에 많은 상태 업데이트를 계획하고 있다면 (1)번과 같은 케이스는 오래되었거나 잘못된 상태 스냅샷에 의존할 수도 있게 된다. (2)번과 같은 방법은 리액트가 prev State가 가장 최신 상태의 스냅샷이라는 것과 항상 계획된 상태 업데이트를 염두에 두고 있다는 것을 보장한다. 
+- 그래서 (2)번과 같은 방법은 항상 최신의 스냅샷에서 작업하도록 하는 좀 더 안전한 방법이다. 그래서 (2)번과 같은 함수 구문을 사용해야 한다.
