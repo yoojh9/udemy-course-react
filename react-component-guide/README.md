@@ -219,4 +219,17 @@ setUserInput((prev) => {
 
 ## 4. Rendering List and Conditional Content
 
-### 1) Rendering List
+### 1) List State 변경
+
+- setState는 전에도 언급했듯이 최신의 스냅샷을 보장하기 위해 previousState를 이용해야 한다.
+
+```javascript
+    const [expenses, setExpenses] = useState(DUMMY_EXPENSES)
+
+    setExpenses(prev => {
+        return [expense, ...prev]
+    })
+
+    // 화살표 함수 축약형
+    setExpenses(prev => [expense, ...prev]);
+```
