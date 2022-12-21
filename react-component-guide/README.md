@@ -233,3 +233,8 @@ setUserInput((prev) => {
     // 화살표 함수 축약형
     setExpenses(prev => [expense, ...prev]);
 ```
+
+<br>
+
+### 2) "keys" 이해하기
+- list의 item을 구별하기 위해서는 key 프로퍼티 값이 필요하다. 고유한 key 값이 있어야 리액트가 여러 list 컴포넌트 item을 구별할 수 있고 더 효율적으로 렌더링할 수 있다.
