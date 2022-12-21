@@ -206,3 +206,10 @@ setUserInput((prev) => {
 ### 4) State 끌어 올리기
 - 부모에서 자식으로 그리고 자식에서 부모로만 소통할 수 있다.
 - **Lifing State Up**: 자식 컴포넌트에서 어떤 부모 컴포넌트로 데이터를 이동해서 거기서 사용하거나 또는 다른 자식 컴포넌트로 데이터를 전달할 수 있다.
+
+
+<br><br>
+
+### 5) Stateful Component vs Stateless Component
+- 어떠한 state도 갖지 않는 component를 Stateless Component라고 부른다.
+- 대부분의 react 어플리케이션에서는 Stateful Component 보다 더 많은 Stateless Component를 갖는다.
