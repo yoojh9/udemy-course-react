@@ -14,20 +14,36 @@ const Expenses = (props) => {
         return expense.date.getFullYear().toString() === filteredYear;
     });
 
+    // JSX 코드 내에 삼항연산자 대신 좀 더 가독성 있게 보여줌.
+    let expenseContent = <p>No expenses found.</p>;
+    if (filteredExpenses.length > 0) {
+        expenseContent = filteredExpenses.map((expense) => (
+            <ExpenseItem
+                key={expense.id}
+                title={expense.title}
+                amount={expense.amount}
+                date={expense.date}
+            />
+        ));
+    }
+
     return (
         <Card className="expenses">
             <ExpensesFilter
                 selected={filteredYear}
                 onChangeFilter={filterChangeHandler}
             />
-            {filteredExpenses.map((expense) => (
-                <ExpenseItem
-                    key={expense.id}
-                    title={expense.title}
-                    amount={expense.amount}
-                    date={expense.date}
-                />
-            ))}
+            {expenseContent}
+            {/* {filteredExpenses.length === 0 && <p>No expenses found</p>}
+            {filteredExpenses.length > 0 &&
+                filteredExpenses.map((expense) => (
+                    <ExpenseItem
+                        key={expense.id}
+                        title={expense.title}
+                        amount={expense.amount}
+                        date={expense.date}
+                    />
+                ))} */}
         </Card>
     );
 };
