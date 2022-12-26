@@ -84,6 +84,7 @@ cursor: pointer;
 export default Button;
 ```
 
+- 기존에 같은 요소를 가리키던 클래스는 &로 변경한다.
 - Styled-Components를 사용하면 우리가 만든 className이 아니라 styled-components 패키지에 의해 동적으로 생성된 className을 확인할 수 있다.
 - 그러므로 모든 클래스는 유니크한 이름을 갖게 되어 앱에 있는 다른 컴포넌트에 영향을 주지 않는다. 
 - 그래서 className이 전역에 선언된다 하더라도 고유한 클래스 이름을 가지므로 앱에 있는 다른 컴포넌트에는 영향을 주지 않는다.
@@ -92,3 +93,7 @@ export default Button;
 ```html
 <button type="submit" class="sc-bcXHqe lacuDr">Add Goal</button>
 ```
+
+<br>
+
+### (1) 동적 Props
