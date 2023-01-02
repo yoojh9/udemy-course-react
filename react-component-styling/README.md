@@ -153,3 +153,8 @@ const CourseInput = (props) => {
 export default CourseInput;
 
 ```
+
+<br>
+
+### (2) 미디어 쿼리
+
