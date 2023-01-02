@@ -158,3 +158,84 @@ export default CourseInput;
 
 ### (2) 미디어 쿼리
 
+
+
+<br><br>
+
+## 5. CSS 모듈 사용하기
+- 강사는 css는 css 파일로 사용하는 것을 선호한다. css 파일과 자바스크립트를 분리하여 깔끔한 자바스크립트 파일과 기본 css 파일을 선호함.
+- 전역 css를 사용하여 클래스명이 겹치지 않게 신경써서 사용할 수도 있지만 css 모듈이라는 기능을 사용해서 css를 다음 단계로 발전시킬 수도 있다.
+- Adding a CSS Modules Stylesheet[https://create-react-app.dev/docs/adding-a-css-modules-stylesheet]
+
+- CSS 모듈을 사용하려면 먼저 css 파일명에 module을 추가한다. (Button.css -> Button.module.css)
+- CSS 모듈을 사용하려면 아래와 같이 import 해야 함
+
+
+```javascript
+// pure css (css 모듈 적용 전)
+import './Button.css';
+
+const Button = props => {
+  return (
+    <button type={props.type} className="button" onClick={props.onClick}>
+      {props.children}
+    </button>
+  );
+};
+
+export default Button
+```
+
+<br>
+
+```javascript
+// css module 적용 후
+import styles from './Button.module.css';
+
+const Button = props => {
+  return (
+    <button type={props.type} className={styles.button} onClick={props.onClick}>
+      {props.children}
+    </button>
+  );
+};
+
+export default Button;
+```
+
+<br>
+
+- 위 코드처럼 css module을 적용하면 내부적으로 아래처럼 클래스명이 변경되어 전역 css가 아닌 고유한 css 클래스를 만듦.
+- 고유한 버전의 스타일과 클래스를 생성한다. 
+- css module은 css 범위가 그 css를 import한 컴포넌트에 한정된다는 것을 확실하게 해준다.
+
+```html
+<head>
+  <style>
+    .Button_button__2lgkF {
+      font: inherit;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid #8b005d;
+      color: white;
+      background: #8b005d;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.26);
+      cursor: pointer;
+    }
+
+    .Button_button__2lgkF:focus {
+      outline: none;
+    }
+
+    .Button_button__2lgkF:hover,
+    .Button_button__2lgkF:active {
+      background: #ac0e77;
+      border-color: #ac0e77;
+      box-shadow: 0 0 8px rgba(0, 0, 0, 0.26);
+    }
+  </style>
+</head>
+<body>
+  <button type="submit" class="Button_button__2lgkF">Add Goal</button>
+</body>
+```
+
