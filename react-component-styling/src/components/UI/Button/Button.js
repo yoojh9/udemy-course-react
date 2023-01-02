@@ -1,7 +1,6 @@
-
 // import styled from 'styled-components';
 // import './Button.css';
-import styles from './Button.module.css';
+import styles from "./Button.module.css";
 
 // Styled Components
 // button은 styled 객체의 메소드이다. ()를 붙여 호출하는 대신 백틱``을 붙여 호출한다.
@@ -33,7 +32,7 @@ const Button = styled.button`
 `;
 */
 
-const Button = props => {
+const Button = (props) => {
   return (
     <button type={props.type} className={styles.button} onClick={props.onClick}>
       {props.children}

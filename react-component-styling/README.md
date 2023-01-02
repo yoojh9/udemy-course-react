@@ -166,7 +166,7 @@ export default CourseInput;
 - https://github.com/yoojh9/udemy-course-react/commit/52f9043f305e517e3310248ea2cdac014d7a1670
 - 강사는 css는 css 파일로 사용하는 것을 선호한다. css 파일과 자바스크립트를 분리하여 깔끔한 자바스크립트 파일과 기본 css 파일을 선호함.
 - 전역 css를 사용하여 클래스명이 겹치지 않게 신경써서 사용할 수도 있지만 css 모듈이라는 기능을 사용해서 css를 다음 단계로 발전시킬 수도 있다.
-- Adding a CSS Modules Stylesheet[https://create-react-app.dev/docs/adding-a-css-modules-stylesheet]
+- Adding a CSS Modules Stylesheet (https://create-react-app.dev/docs/adding-a-css-modules-stylesheet)
 
 - CSS 모듈을 사용하려면 먼저 css 파일명에 module을 추가한다. (Button.css -> Button.module.css)
 - CSS 모듈을 사용하려면 아래와 같이 import 해야 함
@@ -240,3 +240,6 @@ export default Button;
 </body>
 ```
 
+<br>
+
+### 1) CSS 모듈을 사용한 동적 스타일
