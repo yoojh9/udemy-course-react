@@ -1,0 +1,12 @@
+.userInput {
+  max-width: 600px;
+}
+
+.userInput .userForm {
+  display: flex;
+  flex-direction: column;
+}
+
+.userInput .userForm button {
+  width: auto;
+}
