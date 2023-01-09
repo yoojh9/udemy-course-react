@@ -81,7 +81,7 @@ export default Wrapper;
 
 ## 3. React Portals (리액트 포털)
 
-<img src='./images2.png" width="600px">
+<img src="./images2.png" width="600px">
 
 -   semantic 관점이나 clean HTML 구조를 갖췄는지의 관점에서 보면 위 이미지 코드는 별로 좋지 않다. 왜냐햐면 기본적으로 모달은 전체 페이지에 대한 오버레이이다. 따라서 당연히 다른 모든 것들 위에 있다. 모달이 만약 다른 HTML 코드 안에 중첩되어 있다면 기술적으로 스타일링 덕분에 작동할지는 몰라도 좋은 구조가 아니다.
 -   이것은 모달 뿐만이 아니라 drawer, 다이얼로그, 일반적으로 모든 오버레이와 관련된 컴포넌트에서 발생할 수 있다.
@@ -94,6 +94,6 @@ export default Wrapper;
 
 <br>
 
-<img src='./images3.png" width="600px">
+<img src="./images3.png" width="600px">
 
 -   이렇게 하려면 리액트 포털을 사용하면 된다.
