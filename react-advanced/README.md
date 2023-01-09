@@ -103,9 +103,11 @@ export default Wrapper;
 ### 1) Portal 사용 방법
 
 -   포털에는 두 가지가 필요하다. 컴포넌트를 이동시킬 장소가 필요하고 그런 다음 컴포넌트에게 그 곳에 포털을 가져야 한다고 알려줘야 한다.
+-   https://github.com/yoojh9/udemy-course-react/commit/a7eae3ef8d8a2ecd50362c367efc711b41d92e8d
 
 <br>
-- ① \/public\/index.html 파일에 다음과 같이 div를 추가한다.
+
+#### ① /public/index.html 파일에 다음과 같이 div를 추가한다.
 
 ```html
 // index.html
@@ -117,7 +119,7 @@ export default Wrapper;
 </body>
 ```
 
--   ② ErrorModal.js에서 ReactDOM.createPortal()를 이용하여 Portal을 사용한다.
+#### ② ErrorModal.js에서 ReactDOM.createPortal()를 이용하여 Portal을 사용한다.
 
 ```javascript
 // ErrorModal.js
