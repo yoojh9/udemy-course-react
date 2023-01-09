@@ -10,4 +10,6 @@ React, Redux. Next.js, TypeScript
 
 ## [3. React-practice](https://github.com/yoojh9/udemy-course-react/tree/main/react-practice)
 
-## [4. Fragments, Portal & Refs](https://github.com/yoojh9/udemy-course-react/tree/main/react-advanced)
+## [4. Fragments, Portal, Refs](https://github.com/yoojh9/udemy-course-react/tree/main/react-advanced)
+
+## [5. Effects, Reducers, Context](https://github.com/yoojh9/udemy-course-react/tree/main/react-advanced-features)
