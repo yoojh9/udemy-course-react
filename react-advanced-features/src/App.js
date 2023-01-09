@@ -1,31 +1,42 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 
-import Login from './components/Login/Login';
-import Home from './components/Home/Home';
-import MainHeader from './components/MainHeader/MainHeader';
+import Login from "./components/Login/Login";
+import Home from "./components/Home/Home";
+import MainHeader from "./components/MainHeader/MainHeader";
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const loginHandler = (email, password) => {
-    // We should of course check email and password
-    // But it's just a dummy/ demo anyways
-    setIsLoggedIn(true);
-  };
+    const loginHandler = (email, password) => {
+        // We should of course check email and password
+        // But it's just a dummy/ demo anyways
+        localStorage.setItem("isLoaggedIn", "1");
+        setIsLoggedIn(true);
+    };
 
-  const logoutHandler = () => {
-    setIsLoggedIn(false);
-  };
+    const logoutHandler = () => {
+        localStorage.removeItem("isLoggedIn");
+        setIsLoggedIn(false);
+    };
 
-  return (
-    <React.Fragment>
-      <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
-      <main>
-        {!isLoggedIn && <Login onLogin={loginHandler} />}
-        {isLoggedIn && <Home onLogout={logoutHandler} />}
-      </main>
-    </React.Fragment>
-  );
+    // 앱이 실행되고 한번만 실행 됨
+    useEffect(() => {
+        const storeUserLoggedInInformation =
+            localStorage.getItem("isLoaggedIn");
+        if (storeUserLoggedInInformation === "1") {
+            setIsLoggedIn(true);
+        }
+    }, []);
+
+    return (
+        <React.Fragment>
+            <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
+            <main>
+                {!isLoggedIn && <Login onLogin={loginHandler} />}
+                {isLoggedIn && <Home onLogout={logoutHandler} />}
+            </main>
+        </React.Fragment>
+    );
 }
 
 export default App;
