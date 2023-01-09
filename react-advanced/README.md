@@ -97,3 +97,76 @@ export default Wrapper;
 <img src="./images3.png" width="600px">
 
 -   이렇게 하려면 리액트 포털을 사용하면 된다.
+
+<br>
+
+### 1) Portal 사용 방법
+
+-   포털에는 두 가지가 필요하다. 컴포넌트를 이동시킬 장소가 필요하고 그런 다음 컴포넌트에게 그 곳에 포털을 가져야 한다고 알려줘야 한다.
+
+<br>
+- ① \/public\/index.html 파일에 다음과 같이 div를 추가한다.
+
+```html
+// index.html
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="backdrop-root"></div>
+    <div id="overlay-root"></div>
+    <div id="root"></div>
+</body>
+```
+
+-   ② ErrorModal.js에서 ReactDOM.createPortal()를 이용하여 Portal을 사용한다.
+
+```javascript
+// ErrorModal.js
+import Card from "./Card";
+import Button from "./Button";
+import styles from "./ErrorModal.module.css";
+import ReactDOM from "react-dom";
+
+const Backdrop = (props) => {
+    return <div className={styles.backdrop} onClick={props.onConfirm} />;
+};
+
+const ModalOverlay = (props) => {
+    return (
+        <Card className={styles.modal}>
+            <header className={styles.header}>
+                <h2>{props.title}</h2>
+            </header>
+            <div className={styles.content}>
+                <p>{props.message}</p>
+            </div>
+            <footer className={styles.actions}>
+                <Button onClick={props.onConfirm}>Okay</Button>
+            </footer>
+        </Card>
+    );
+};
+const ErrorModal = (props) => {
+    return (
+        <>
+            {ReactDOM.createPortal(
+                <Backdrop onConfirm={props.onConfirm} />,
+                document.getElementById("backdrop-root")
+            )}
+            {ReactDOM.createPortal(
+                <ModalOverlay
+                    title={props.title}
+                    message={props.message}
+                    onConfirm={props.onConfirm}
+                />,
+                document.getElementById("overlay-root")
+            )}
+        </>
+    );
+};
+
+export default ErrorModal;
+```
+
+<br>
+
+-   포털의 핵심은 렌더링된 HTML 내용을 다른 곳으로 옮기는 것이다.
