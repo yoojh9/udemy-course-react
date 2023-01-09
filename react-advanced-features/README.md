@@ -37,6 +37,8 @@ useEffect(() => {
     -   component 외부에서 정의한 변수나 함수를 추가할 필요가 없다. 이러한 함수나 변수도 컴포넌트 함수 내부에서 생성되지 않으므로 변경해도 구성 요소에 영향을 주지 않는다.
 -   즉, 다시 렌더링 되어 변경될 수 있는 경우, 그렇기 때문에 컴포넌트 함수에 정의된 state나 props 또는 함수는 종속성으로 추가되어야 한다.
 
+<br>
+
 ```javascript
 import { useEffect, useState } from "react";
 
@@ -57,6 +59,8 @@ const MyComponent = (props) => {
     }, [timerIsActive, timerDuration]);
 };
 ```
+
+<br>
 
 -   위 예에서 :
     -   **timeIsActive**는 dependency에 추가되었다. 왜냐하면 구성 요소가 변경될 때마다 변경될 수 있는 state이기 때문이다.
