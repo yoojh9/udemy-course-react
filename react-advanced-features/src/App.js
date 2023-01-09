@@ -10,7 +10,7 @@ function App() {
     const loginHandler = (email, password) => {
         // We should of course check email and password
         // But it's just a dummy/ demo anyways
-        localStorage.setItem("isLoaggedIn", "1");
+        localStorage.setItem("isLoggedIn", "1");
         setIsLoggedIn(true);
     };
 
@@ -21,8 +21,7 @@ function App() {
 
     // 앱이 실행되고 한번만 실행 됨
     useEffect(() => {
-        const storeUserLoggedInInformation =
-            localStorage.getItem("isLoaggedIn");
+        const storeUserLoggedInInformation = localStorage.getItem("isLoggedIn");
         if (storeUserLoggedInInformation === "1") {
             setIsLoggedIn(true);
         }

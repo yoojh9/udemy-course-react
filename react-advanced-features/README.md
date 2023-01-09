@@ -18,3 +18,17 @@ useEffect(() => {...}, [dependencies])
 -   두번째 인수는 지정된 의존성이다. 의존성으로 구성된 배열이다.
 
 <img src="image2.png" width="600px">
+
+<br>
+
+### 2) useEffect() with dependencies
+
+-
+
+```javascript
+useEffect(() => {
+    setFormIsValid(
+        enteredEmail.includes("@") && enteredPassword.trim().length > 6
+    );
+}, [enteredEmail, enteredPassword]);
+```
