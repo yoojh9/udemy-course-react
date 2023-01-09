@@ -172,3 +172,14 @@ export default ErrorModal;
 <br>
 
 -   포털의 핵심은 렌더링된 HTML 내용을 다른 곳으로 옮기는 것이다.
+
+<br><br>
+
+## 4) ref
+
+-   다른 DOM 요소에 접근하여 작업할 수 있게 해줌.
+-   useRef()는 함수형 컴포넌트에서만 사용할 수 있다.
+-   ref는 항상 객체고, current를 prop로 가지고 있다. current에는 실제 DOM 노드가 저장된다.
+-   state 기반의 AddUser.js input 값을 ref로 바꿀 수 있다 ()
+
+-   값만 읽고 싶고 아무것도 바꿀 계획이 없다면 state 보다는 ref가 더 낫다.
