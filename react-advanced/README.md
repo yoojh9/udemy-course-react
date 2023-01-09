@@ -72,7 +72,7 @@ export default Wrapper;
 
 ### 1) Introducing Fragments
 
-<img src="./images.png" width="400px"/>
+<img src="./images.png" width="600px"/>
 
 -   왼쪽 구문은 항상 작동하고 오른쪽 구문(short cut)은 빌드 워크플로가 지원해야 사용할 수 있음
 -   앞에서 직접 만든 Wrapper 컴포넌트와 동일하다. 이 두 구문은 빈 Wrapper를 렌더링한다. 실제 HTML 요소를 DOM에 렌더링하지 않는다.
