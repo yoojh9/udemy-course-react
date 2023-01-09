@@ -180,6 +180,12 @@ export default ErrorModal;
 -   다른 DOM 요소에 접근하여 작업할 수 있게 해줌.
 -   useRef()는 함수형 컴포넌트에서만 사용할 수 있다.
 -   ref는 항상 객체고, current를 prop로 가지고 있다. current에는 실제 DOM 노드가 저장된다.
--   state 기반의 AddUser.js input 값을 ref로 바꿀 수 있다 ()
-
+-   state 기반의 AddUser.js input 값을 ref로 바꿀 수 있다 (https://github.com/yoojh9/udemy-course-react/commit/e4e94fbd241105edc7f339d313a3a14ee6c11c4e)
 -   값만 읽고 싶고 아무것도 바꿀 계획이 없다면 state 보다는 ref가 더 낫다.
+
+<br><br>
+
+## 5) 제어되는 컴포넌트 vs 제어되지 않는 컴포넌트
+
+-   AddUser.js에서 state를 이용하여 작업했을 때는 모든 키 입력해서 해당 state를 업데이트 했다. 그리고 value prop에 state의 값을 다시 넣어줬다. 즉 state를 이용한 방식을 이용한 input 필드는 **제어되는 컴포넌트**라고 할 수 있다.
+-   ref를 이용하여 상호 작용하는 컴포넌트는 **제어되지 않은 컴포넌트**가 된다. ref를 이용하여 값을 가지고 오지만 input에 다시 데이터를 보내지 않는다. AddUser.js에서 nameInputRef.current.value = ""; 를 이용하여 값을 조작하더라도 일반 DOM API를 이용하여 DOM을 조작하는 방식이므로 리액트로 이 input 요소의 state를 제어하지 않는다.
