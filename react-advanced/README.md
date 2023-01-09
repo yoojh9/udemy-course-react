@@ -52,7 +52,7 @@ return (
 
 <br>
 
-### 3) Solution (O)
+### 3) Solution (△)
 
 -   children을 반환하는 root 역할만 하는 Wrapper 컴포넌트를 만든다.
 
@@ -64,4 +64,15 @@ const Wrapper = (props) => {
 export default Wrapper;
 ```
 
--   위처럼 Wrapper 컴포넌트는 우리가 직접 만들 필요는 없고 리액트에서 Fragment 컴포넌트를 제공한다.
+-   위처럼 Wrapper 컴포넌트는 우리가 직접 만들 필요는 없고 리액트에서 Fragment 컴포넌트를 제공한다. 보통은 자체적으로 Wrapper 컴포넌트를 만들지 않는다.
+
+<br><br>
+
+## 2. Fragment 컴포넌트
+
+### 1) Introducing Fragments
+
+<img src="./images.png" width="400px"/>
+
+-   왼쪽 구문은 항상 작동하고 오른쪽 구문(short cut)은 빌드 워크플로가 지원해야 사용할 수 있음
+-   앞에서 직접 만든 Wrapper 컴포넌트와 동일하다. 이 두 구문은 빈 Wrapper를 렌더링한다. 실제 HTML 요소를 DOM에 렌더링하지 않는다.
