@@ -76,3 +76,24 @@ export default Wrapper;
 
 -   왼쪽 구문은 항상 작동하고 오른쪽 구문(short cut)은 빌드 워크플로가 지원해야 사용할 수 있음
 -   앞에서 직접 만든 Wrapper 컴포넌트와 동일하다. 이 두 구문은 빈 Wrapper를 렌더링한다. 실제 HTML 요소를 DOM에 렌더링하지 않는다.
+
+<br><br>
+
+## 3. React Portals (리액트 포털)
+
+<img src='./images2.png" width="600px">
+
+-   semantic 관점이나 clean HTML 구조를 갖췄는지의 관점에서 보면 위 이미지 코드는 별로 좋지 않다. 왜냐햐면 기본적으로 모달은 전체 페이지에 대한 오버레이이다. 따라서 당연히 다른 모든 것들 위에 있다. 모달이 만약 다른 HTML 코드 안에 중첩되어 있다면 기술적으로 스타일링 덕분에 작동할지는 몰라도 좋은 구조가 아니다.
+-   이것은 모달 뿐만이 아니라 drawer, 다이얼로그, 일반적으로 모든 오버레이와 관련된 컴포넌트에서 발생할 수 있다.
+
+-   이것은 버튼을 만들 때 단순히 버튼처럼 <div>를 스타일링하고 이벤트 리스너를 추가하는 것과 비슷하다
+
+```javascript
+<div onClick={clickHandler}>Click me, I'm a bad button</div>
+```
+
+<br>
+
+<img src='./images3.png" width="600px">
+
+-   이렇게 하려면 리액트 포털을 사용하면 된다.
