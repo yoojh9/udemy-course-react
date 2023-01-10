@@ -143,3 +143,4 @@ const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
 <br>
 
 -   먼저 enteredEmail, emailIsValid state 부터 useReducer로 관리해보자. 여기서 하려는 일은 값과 유효성을 하나의 state로 결합하여 useReducer로 관리하는 것이다.
+-   https://github.com/yoojh9/udemy-course-react/commit/7bc664428283377c59a60cd196676fd1ee49f649
