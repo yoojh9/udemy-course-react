@@ -29,6 +29,11 @@ useEffect(() => {
         enteredEmail.includes("@") && enteredPassword.trim().length > 6
     );
 }, [enteredEmail, enteredPassword]);
+
+// 이 컴포넌트가 처음으로 마운트 되고 렌더링 될 때만 실행됨. 이후의 렌더링 주기에는 실행되지 않음
+useEffect(() => {
+    console.log('EFFECT RUNNING)
+},[])
 ```
 
 -   useEffect()에서 사용하는 모든 것을 종속성으로 추가해야 한다. 하지만 몇 가지 예외가 있다
@@ -97,3 +102,44 @@ useEffect(() => {
     };
 }, [enteredEmail, enteredPassword]);
 ```
+
+<br><br>
+
+## 2. UseReducer() for State management
+
+-   useReducer()는 state 관리를 도와준다. useState()와 약간 비슷하지만 더 많은 기능이 있고 더 복잡한 state에 특히 유용하다.
+-   예를 들어 여러 state들이 함께 속해 있는 경우나 state가 다양한 방법으로 변경되는 등의 복잡한 state 관리에 유용하다. 이럴 경우 useState()를 사용하면 관리하기가 어렵고 오류가 발생하기 쉽다.
+-   대부분의 경우에는 useState()를 사용하는 것이 좋다.
+
+-   아래 코드는 prev 스냅샷을 기준으로 setState 하는게 아니기 때문에 최신 스냅샷의 데이터가 아닐 수도 있다. 아래 같은 예제는 useReducer()를 사용하는 게 좋다.
+
+<br>
+
+```javascript
+setEmailIsValid(enteredEmail.includes("@"));
+
+setFormIsValid(
+    event.target.value.includes("@") && enteredPassword.trim().length > 6
+);
+```
+
+<br>
+
+### 1) useReducer() 사용법
+
+-   useReducer()도 useState()처럼 항상 두 개의 값이 있는 배열을 반환한다.
+-   **state**: 첫번째로 반환되는 값은 state 스냅샷이다. 왜냐하면 이것은 state 관리 매커니즘이기 때문이다.
+-   **dispatchFn**: 두번째로 반환되는 값은 state를 업데이트 할 수 있게 해주는 함수이다. 하지만 useState()와 같이 state를 업데이트 하는 게 아니라 액션을 디스패치 한다.
+-   **reducerFn**: 그 액션은 useReducer()의 첫번째 인수인 reducerFn이 사용한다. reducerFn은 함수이며 action이 dispatch 되면 (dispatchFn()을 통해) 자동으로 이 리듀서 함수는 호출된다. 그러면 이 함수는 리액트과 관리하는 최신 state 스냅샷을 가져온다. 또한 새로 업데이트 된 state를 반환한다.
+-   **initialState**: 초기 state
+-   **initFn**: 초기 state를 설정하기 위한 초기 함수
+
+<br>
+
+```javascript
+const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
+```
+
+<br>
+
+-   먼저 enteredEmail, emailIsValid state 부터 useReducer로 관리해보자. 여기서 하려는 일은 값과 유효성을 하나의 state로 결합하여 useReducer로 관리하는 것이다.
