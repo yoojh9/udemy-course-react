@@ -68,3 +68,32 @@ const MyComponent = (props) => {
     -   **setTimerIsActive**는 dependency에 추가되지 않았다. setState 기능은 React에서 기능 자체가 절대 변경되지 않음을 보장하므로 추가할 필요가 없다.
     -   **myTimer**는 dependency에 추가되지 않았다. 왜냐하면 이것은 컴포넌트의 내부 변수가 아니다(즉, 어떤 state나 prop가 아님). 컴포넌트의 외부에서 정의되고 이를 변경한다. (어디에서든) 컴포넌트가 다시 평가되도록 하지 않는다
     -   **setTimeout**은 dependency에 추가되지 않았다. 왜냐하면 브라우저 내장 API이기 때문이다. 내장 API는 React와 독립적이며 변경되지 않는다.
+
+<br>
+
+### 3) useEffect에서 CleanUp 함수 사용하기
+
+-   클린업 함수는 모든 새로운 side effect 함수가 실행되기 전에, 그리고 컴포넌트가 제거되기 전에 실행된다. 단 첫번째 사이드 이펙트 함수가 실행되기 전에는 실행되지 않는다. 그러나 그 이후에는 모든 다음 사이드 이펙트 함수들이 실행되기 전에 실행된다.
+
+-   아래 코드에서는 CleanUp 함수에 clearTimeout() 함수를 실행함으로써 클린업 함수가 실행될 때마다 클린업 함수가 실행되기 전에 설정된 타이머를 지운다.
+
+-   따라서 다음 사이드 이펙트를 실행할 때가 되면 새로운 타이머를 설정할 수 있다. 즉 새로운 타이머를 설정하기 전에 마지막 타이머를 지운다.
+
+<br>
+
+```javascript
+// Login.js
+
+useEffect(() => {
+    const identifier = setTimeout(() => {
+        setFormIsValid(
+            enteredEmail.includes("@") && enteredPassword.trim().length > 6
+        );
+    }, 500);
+
+    return () => {
+        clearTimeout(identifier); // 이렇게 하면 클린업 함수가 실행될 때마다 클린업 함수가 실행되기 전에 설정된 타이머를 지운다.
+        console.log("CLEANUP");
+    };
+}, [enteredEmail, enteredPassword]);
+```

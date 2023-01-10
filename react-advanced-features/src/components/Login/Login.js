@@ -12,9 +12,16 @@ const Login = (props) => {
     const [formIsValid, setFormIsValid] = useState(false);
 
     useEffect(() => {
-        setFormIsValid(
-            enteredEmail.includes("@") && enteredPassword.trim().length > 6
-        );
+        const identifier = setTimeout(() => {
+            setFormIsValid(
+                enteredEmail.includes("@") && enteredPassword.trim().length > 6
+            );
+        }, 500);
+
+        return () => {
+            clearTimeout(identifier); // 이렇게 하면 클린업 함수가 실행될 때마다 클린업 함수가 실행되기 전에 설정된 타이머를 지운다.
+            console.log("CLEANUP");
+        };
     }, [enteredEmail, enteredPassword]);
 
     const emailChangeHandler = (event) => {
