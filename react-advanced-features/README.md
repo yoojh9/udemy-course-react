@@ -144,3 +144,64 @@ const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
 
 -   먼저 enteredEmail, emailIsValid state 부터 useReducer로 관리해보자. 여기서 하려는 일은 값과 유효성을 하나의 state로 결합하여 useReducer로 관리하는 것이다.
 -   https://github.com/yoojh9/udemy-course-react/commit/7bc664428283377c59a60cd196676fd1ee49f649
+
+-   위 예제처럼 enteredPassword, passwordIsValid state를 useReducer()로 사용하여 변경한 코드는 다음과 같다.
+
+-   https://github.com/yoojh9/udemy-course-react/commit/2718f248f88d8884749558c4d59cb6190f534935
+
+<br><br>
+
+## 3. useEffect() & useReducer()
+
+-   다른 state를 기준으로 state를 업데이트 하려면 useEffect() 안에서 처리하는 것이 좋다.
+
+-   아래 코드에서 passwordState가 최신의 state라고 보장할 수 없다.
+
+<br>
+
+```javascript
+setFormIsValid(event.target.value.includes("@") && passwordState.isValid);
+```
+
+<br>
+
+-   useEffect()에서 dependencies에 state 를 추가하면 state가 변경될 때마다 useEffect()가 실행되므로 최신의 state를 보장할 수 있다.
+
+<br>
+
+```javascript
+useEffect(() => {
+    const identifier = setTimeout(() => {
+        setFormIsValid(emailState.isValid && passwordState.isValid);
+    }, 500);
+
+    return () => {
+        clearTimeout(identifier); // 이렇게 하면 클린업 함수가 실행될 때마다 클린업 함수가 실행되기 전에 설정된 타이머를 지운다.
+        console.log("CLEANUP");
+    };
+}, [emailState, passwordState]);
+```
+
+<br>
+
+-   하지만 위 코드는 state가 변경될 때마다 빈번하게 일어난다. 심지어 state.isValid 값이 변경될 떄가 아닌 state.val 값이 변경될 때도 실행된다.
+
+-   아래 코드처럼 isValid가 변경될 때 useEffect()가 실행되도록 최적화해보자.
+
+<br>
+
+```javascript
+const { isValid: emailIsValid } = emailState;
+const { isValid: passwordIsValid } = passwordState;
+
+useEffect(() => {
+    const identifier = setTimeout(() => {
+        setFormIsValid(emailIsValid && passwordIsValid);
+    }, 500);
+
+    return () => {
+        clearTimeout(identifier); // 이렇게 하면 클린업 함수가 실행될 때마다 클린업 함수가 실행되기 전에 설정된 타이머를 지운다.
+        console.log("CLEANUP");
+    };
+}, [emailIsValid, passwordIsValid]);
+```

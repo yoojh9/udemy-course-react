@@ -41,32 +41,36 @@ const Login = (props) => {
         value: "",
         isValid: null,
     });
-    // useEffect(() => {
-    //     const identifier = setTimeout(() => {
-    //         setFormIsValid(
-    //             enteredEmail.includes("@") && enteredPassword.trim().length > 6
-    //         );
-    //     }, 500);
 
-    //     return () => {
-    //         clearTimeout(identifier); // 이렇게 하면 클린업 함수가 실행될 때마다 클린업 함수가 실행되기 전에 설정된 타이머를 지운다.
-    //         console.log("CLEANUP");
-    //     };
-    // }, [enteredEmail, enteredPassword]);
+    const { isValid: emailIsValid } = emailState;
+    const { isValid: passwordIsValid } = passwordState;
+
+    useEffect(() => {
+        const identifier = setTimeout(() => {
+            setFormIsValid(emailIsValid && passwordIsValid);
+        }, 500);
+
+        return () => {
+            clearTimeout(identifier); // 이렇게 하면 클린업 함수가 실행될 때마다 클린업 함수가 실행되기 전에 설정된 타이머를 지운다.
+            console.log("CLEANUP");
+        };
+    }, [emailIsValid, passwordIsValid]);
 
     const emailChangeHandler = (event) => {
         //setEnteredEmail(event.target.value);
         dispatchEmail({ type: "USER_INPUT", val: event.target.value });
-        setFormIsValid(
-            event.target.value.includes("@") && passwordState.isValid
-        );
+        // setFormIsValid(
+        //     event.target.value.includes("@") && passwordState.isValid
+        // );
     };
 
     const passwordChangeHandler = (event) => {
         dispatchPassword({ type: "USER_INPUT", val: event.target.value });
-        setFormIsValid(
-            emailState.isValid && event.target.value.trim().length > 6
-        );
+
+        // 이 코드도 최신의 state를 가지고 오지 않을 수 있으므로 최적은 아님.
+        // setFormIsValid(
+        //     emailState.isValid && event.target.value.trim().length > 6
+        // );
     };
 
     const validateEmailHandler = () => {
