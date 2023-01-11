@@ -291,9 +291,14 @@ return (
 );
 ```
 
+<br>
+
 #### ② listening
 
 - 첫번째 방법: AuthContext.Consumer로 컴포넌트를 감싼다
+- https://github.com/yoojh9/udemy-course-react/commit/6a3abdb920c2457e05b98affa6d6a87c0b84f922
+
+<br>
 
 ```javascript
 // Navigation.js
@@ -326,4 +331,39 @@ const Navigation = (props) => {
 
     </AuthContext.Consumer>
   )
+```
+
+<br>
+
+- 두번째 방법: useContext() hook 사용
+
+<br>
+
+```javascript
+const Navigation = (props) => {
+  const ctx = useContext(AuthContext);
+
+  return (
+    <nav className={classes.nav}>
+      <ul>
+        {ctx.isLoggedIn && (
+          <li>
+            <a href="/">Users</a>
+          </li>
+        )}
+        {ctx.isLoggedIn && (
+          <li>
+            <a href="/">Admin</a>
+          </li>
+        )}
+        {ctx.isLoggedIn && (
+          <li>
+            <button onClick={props.onLogout}>Logout</button>
+          </li>
+        )}
+      </ul>
+    </nav>
+  );
+};
+
 ```
