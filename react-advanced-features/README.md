@@ -243,4 +243,87 @@ useEffect(() => {
 <br>
 
 - 위의 스크린샷처럼 prop chain 문제를 해결하기 위해 컴포넌트 전체에서 사용할 수 있는 리액트에 내장된 내부적인 State 저장소가 있다.
-- 내부적인 State 저장소가 React Context이다. 이를 사용하면 액션을 트리거할 수 있고, 그런 다음 긴 prop chain을 만들지 않고도 관련된 컴포넌트에 직접 전달할 수 있다. 
+- 내부적인 State 저장소가 React Context이다. 이를 사용하면 액션을 트리거할 수 있고, 그런 다음 긴 prop chain을 만들지 않고도 관련된 컴포넌트에 직접 전달할 수 있다.
+
+<br>
+
+### 2) 리액트 컨텍스트 사용법
+
+- state를 앱의 어떤 컴포넌트에서든 직접 변경하여, 앱의 다른 컴포넌트에 직접 전달할 수 있게 해준다. (prop chain을 생성하지 않는다)
+
+#### ① provider
+
+- /store/auth-context.js
+
+<br>
+
+```javascript
+import React from "react";
+
+// context 객체 생성
+const AuthContext = React.createContext({
+  isLoggedIn: false,
+});
+
+export default AuthContext;
+```
+
+<br>
+
+- App.js: AuthContext를 사용할 컴포넌트를 AuthContext.Provider로 컴포넌트를 생성하여 감싼다
+
+```javascript
+// App.js
+
+return (
+  <React.Fragment>
+    {/* AuthContext.Provider는 컴포넌트로 AuthContext 컨텍스트가 필요한 컴포넌트들을 감쌀 수 있다. 
+                모든 컴포넌트들은 AuthContext를 Wrapper로 사용하므로 AuthContext 컨텍스트에 접근할 수 있다       
+            */}
+    <AuthContext.Provider value={{ isLoggedIn }}>
+      <MainHeader onLogout={logoutHandler} />
+      <main>
+        {!isLoggedIn && <Login onLogin={loginHandler} />}
+        {isLoggedIn && <Home onLogout={logoutHandler} />}
+      </main>
+    </AuthContext.Provider>
+  </React.Fragment>
+);
+```
+
+#### ② listening
+
+- 첫번째 방법: AuthContext.Consumer로 컴포넌트를 감싼다
+
+```javascript
+// Navigation.js
+const Navigation = (props) => {
+  return (
+    <AuthContext.Consumer>
+      {(ctx) => {
+        return (
+          <nav className={classes.nav}>
+            <ul>
+              {ctx.isLoggedIn && (
+                <li>
+                  <a href="/">Users</a>
+                </li>
+              )}
+              {ctx.isLoggedIn && (
+                <li>
+                  <a href="/">Admin</a>
+                </li>
+              )}
+              {ctx.isLoggedIn && (
+                <li>
+                  <button onClick={props.onLogout}>Logout</button>
+                </li>
+              )}
+            </ul>
+          </nav>
+        )
+      }}
+
+    </AuthContext.Consumer>
+  )
+```

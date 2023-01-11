@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 import MainHeader from "./components/MainHeader/MainHeader";
+import AuthContext from "./store/auth-context";
 
 function App() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -29,11 +30,16 @@ function App() {
 
     return (
         <React.Fragment>
-            <MainHeader isAuthenticated={isLoggedIn} onLogout={logoutHandler} />
-            <main>
-                {!isLoggedIn && <Login onLogin={loginHandler} />}
-                {isLoggedIn && <Home onLogout={logoutHandler} />}
-            </main>
+            {/* AuthContext.Provider는 컴포넌트로 AuthContext 컨텍스트가 필요한 컴포넌트들을 감쌀 수 있다. 
+                모든 컴포넌트들은 AuthContext를 Wrapper로 사용하므로 AuthContext 컨텍스트에 접근할 수 있다       
+            */}
+            <AuthContext.Provider value={{isLoggedIn}}>
+                <MainHeader onLogout={logoutHandler} />
+                <main>
+                    {!isLoggedIn && <Login onLogin={loginHandler} />}
+                    {isLoggedIn && <Home onLogout={logoutHandler} />}
+                </main>
+            </AuthContext.Provider>
         </React.Fragment>
     );
 }
