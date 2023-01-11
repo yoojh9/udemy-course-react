@@ -296,7 +296,7 @@ return (
 #### ② listening
 
 - 첫번째 방법: AuthContext.Consumer로 컴포넌트를 감싼다
-- https://github.com/yoojh9/udemy-course-react/commit/6a3abdb920c2457e05b98affa6d6a87c0b84f922
+    - https://github.com/yoojh9/udemy-course-react/commit/6a3abdb920c2457e05b98affa6d6a87c0b84f922
 
 <br>
 
@@ -335,8 +335,8 @@ const Navigation = (props) => {
 
 <br>
 
-- 두번째 방법: useContext() hook 사용
-
+- 두번째 방법: useContext() hook 사용 (권장)
+    - https://github.com/yoojh9/udemy-course-react/commit/82c600634f52be32c35cae69b4c3954345ec405d
 <br>
 
 ```javascript
