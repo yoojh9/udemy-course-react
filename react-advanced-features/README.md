@@ -149,9 +149,9 @@ const [state, dispatchFn] = useReducer(reducerFn, initialState, initFn);
 
 -   https://github.com/yoojh9/udemy-course-react/commit/2718f248f88d8884749558c4d59cb6190f534935
 
-<br><br>
+<br>
 
-## 3. useEffect() & useReducer()
+### 2) useEffect() & useReducer()
 
 -   다른 state를 기준으로 state를 업데이트 하려면 useEffect() 안에서 처리하는 것이 좋다.
 
@@ -209,3 +209,22 @@ useEffect(() => {
 <br>
 
 -   https://github.com/yoojh9/udemy-course-react/commit/ec683fdef8f7330e63da8d72a91d98dc8aa6599f
+
+<br>
+
+### 3) useState() & useReducer()
+- useState()를 사용할 경우 너무 번거로운 경우나 너무 많은 일을 처리해야 되는 경우 useReducer()를 사용한다.
+
+- useState() 
+    - 메인 state 관리 툴이다. 개별 state를 다루기에 적합하다. 
+    - 간단한 state에 적합하다. 
+    - state 업데이트가 쉽고 몇 종류 안되는 경우에 적합하다. 
+    - 따라서 state가 변경되는 경우가 다양하지 않다면, 특히 객체 state가 아니라면 적합하다
+
+- useReducer()
+    - state가 객체이거나 복잡한 state가 있다면 useReducer()가 적합하다
+    - useReducer()를 사용하면 복잡한 state 업데이트 로직을 포함하는 리듀서 함수를 사용할 수 있음
+    - 연관된 state 조각들로 구성된 state 관련 데이터를 다루는 경우 유용하다.
+    - useReducer 대신 useEffect()와 useState()를 같이 사용하여 처리할 수 있지만 useRedcuer()를 사용하는 것이 더 간단할 수도 있다.
+    
+
