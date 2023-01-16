@@ -1,8 +1,9 @@
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
 import Button from "../UI/Button/Button";
+import AuthContext from "../../store/auth-context";
 
 // 이 Reducer 함수는 컴포넌트의 어느 데이터도 필요로 않으므로 컴포넌트 외부에 생성
 const emailReducer = (state, action) => {
@@ -44,6 +45,7 @@ const Login = (props) => {
 
     const { isValid: emailIsValid } = emailState;
     const { isValid: passwordIsValid } = passwordState;
+    const authCtx = useContext(AuthContext);
 
     useEffect(() => {
         const identifier = setTimeout(() => {
@@ -85,7 +87,7 @@ const Login = (props) => {
 
     const submitHandler = (event) => {
         event.preventDefault();
-        props.onLogin(emailState.value, passwordState.value);
+        authCtx.onLogin(emailState.value, passwordState.value);
     };
 
     return (
