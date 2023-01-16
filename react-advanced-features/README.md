@@ -371,6 +371,7 @@ const Navigation = (props) => {
 ### 3) 커스텀 정의 Provider
 
 -   auth-context.js 파일에 AuthContext.Provider 컴포넌트를 리턴하는 커스텀 Provider를 만들면 App.js에서 많은 코드를 줄일 수 있다
+-   https://github.com/yoojh9/udemy-course-react/commit/15e64d4e9685bc0eaeb8ba5fa68126953fc73539
 
 <br>
 
@@ -455,3 +456,10 @@ root.render(
     </AuthContextProvider>
 );
 ```
+
+<br>
+
+### 4) Context 한계
+
+-   앱 전체 또는 컴포넌트 전체 state에는 적합할 수 있다. 즉 기본적으로 여러 컴포넌트에 영향을 미치는 state들에는 적합하다.
+-   변경이 잦은 React Context에는 그다지 적합하지 않다.
