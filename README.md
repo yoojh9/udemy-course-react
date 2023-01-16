@@ -13,3 +13,5 @@ React, Redux. Next.js, TypeScript
 ## [4. Fragments, Portal, Refs](https://github.com/yoojh9/udemy-course-react/tree/main/react-advanced)
 
 ## [5. Effects, Reducers, Context](https://github.com/yoojh9/udemy-course-react/tree/main/react-advanced-features)
+
+## [6. Course Project: The Food Order App](https://github.com/yoojh9/udemy-course/react/tree/main/food-order-app)
