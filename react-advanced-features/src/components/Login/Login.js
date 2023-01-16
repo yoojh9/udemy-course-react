@@ -1,4 +1,10 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, {
+    useContext,
+    useEffect,
+    useReducer,
+    useRef,
+    useState,
+} from "react";
 
 import Card from "../UI/Card/Card";
 import classes from "./Login.module.css";
@@ -48,6 +54,9 @@ const Login = (props) => {
     const { isValid: passwordIsValid } = passwordState;
     const authCtx = useContext(AuthContext);
 
+    const emailInputRef = useRef();
+    const passwordInputRef = useRef();
+
     useEffect(() => {
         const identifier = setTimeout(() => {
             setFormIsValid(emailIsValid && passwordIsValid);
@@ -60,41 +69,37 @@ const Login = (props) => {
     }, [emailIsValid, passwordIsValid]);
 
     const emailChangeHandler = (event) => {
-        //setEnteredEmail(event.target.value);
         dispatchEmail({ type: "USER_INPUT", val: event.target.value });
-        // setFormIsValid(
-        //     event.target.value.includes("@") && passwordState.isValid
-        // );
     };
 
     const passwordChangeHandler = (event) => {
         dispatchPassword({ type: "USER_INPUT", val: event.target.value });
-
-        // 이 코드도 최신의 state를 가지고 오지 않을 수 있으므로 최적은 아님.
-        // setFormIsValid(
-        //     emailState.isValid && event.target.value.trim().length > 6
-        // );
     };
 
     const validateEmailHandler = () => {
-        //setEmailIsValid(emailState.isValid);
         dispatchEmail({ type: "INPUT_BLUR" });
     };
 
     const validatePasswordHandler = () => {
-        // setPasswordIsValid(enteredPassword.trim().length > 6);
         dispatchPassword({ type: "INPUT_BLUR" });
     };
 
     const submitHandler = (event) => {
         event.preventDefault();
-        authCtx.onLogin(emailState.value, passwordState.value);
+        if (formIsValid) {
+            authCtx.onLogin(emailState.value, passwordState.value);
+        } else if (!emailIsValid) {
+            emailInputRef.current.focus();
+        } else if (!passwordIsValid) {
+            emailInputRef.current.focus();
+        }
     };
 
     return (
         <Card className={classes.login}>
             <form onSubmit={submitHandler}>
                 <Input
+                    ref={emailInputRef}
                     id="email"
                     name="E-Mail"
                     type="email"
@@ -104,6 +109,7 @@ const Login = (props) => {
                     onBlur={validateEmailHandler}
                 />
                 <Input
+                    ref={passwordInputRef}
                     id="password"
                     name="Password"
                     type="password"

@@ -477,3 +477,12 @@ root.render(
 -   ③ useEffect()에서는 참조하는 모든 항목을 의존성으로 추가해야 한다.
 
 <br><br>
+
+## 5. Forward Ref
+
+### useImperativeHandle()
+
+-   useImperativeHandler() 훅을 사용하면 컴포넌트나 컴포넌트 내부에서 오는 함수들을 사용할 수 있게 해준다.
+-   즉 일반적인 state, prop 관리를 통하지 않고, 부모 컴포넌트 state를 통해 컴포넌트를 제어하지 않고 프로그래밍적으로 컴포넌트에서 무언가를 직접 호출하거나 조작해서 사용하게 해준다.
+-   이 hook은 거의 사용하지 않고, 자주 사용하면 안됨
+-   useImperativeHandle 및 forwardRef를 사용하면 리액트 컴포넌트로부터 온 기능을 노출하여 부모 컴포넌트에 연결한 다음 부모 컴포넌트 안에서 참조를 통해 그 컴포넌트를 사용하고 기능을 트리거할 수 있다.
