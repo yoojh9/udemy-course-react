@@ -91,7 +91,7 @@ const Login = (props) => {
         } else if (!emailIsValid) {
             emailInputRef.current.focus();
         } else if (!passwordIsValid) {
-            emailInputRef.current.focus();
+            passwordInputRef.current.focus();
         }
     };
 
