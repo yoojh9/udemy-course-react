@@ -110,15 +110,11 @@ const Login = (props) => {
                     value={passwordState.value}
                     isValid={passwordState.isValid}
                     onChange={passwordChangeHandler}
-                    onBlur={passwordIsValid}
+                    onBlur={validatePasswordHandler}
                 />
 
                 <div className={classes.actions}>
-                    <Button
-                        type="submit"
-                        className={classes.btn}
-                        disabled={!formIsValid}
-                    >
+                    <Button type="submit" className={classes.btn}>
                         Login
                     </Button>
                 </div>
