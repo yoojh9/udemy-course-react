@@ -486,3 +486,4 @@ root.render(
 -   즉 일반적인 state, prop 관리를 통하지 않고, 부모 컴포넌트 state를 통해 컴포넌트를 제어하지 않고 프로그래밍적으로 컴포넌트에서 무언가를 직접 호출하거나 조작해서 사용하게 해준다.
 -   이 hook은 거의 사용하지 않고, 자주 사용하면 안됨
 -   useImperativeHandle 및 forwardRef를 사용하면 리액트 컴포넌트로부터 온 기능을 노출하여 부모 컴포넌트에 연결한 다음 부모 컴포넌트 안에서 참조를 통해 그 컴포넌트를 사용하고 기능을 트리거할 수 있다.
+-   https://github.com/yoojh9/udemy-course-react/commit/5e0085156ba949c0d9e5b582fc2a1fffebeabdb4
