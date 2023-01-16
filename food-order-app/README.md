@@ -19,3 +19,5 @@
 ### 5. 음식 Form 추가하기
 
 -   https://github.com/yoojh9/udemy-course-react/commit/1edc34dc0c0812446a2fe799fce4b63f68dea826
+
+### 6. Cart 컴포넌트 추가하기
