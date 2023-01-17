@@ -17,6 +17,7 @@ const cartReducer = (state, action) => {
             items: updatedItems,
             totalAmount: updatedTotalAmount,
         };
+    } else if (action.type === "REMOVE") {
     }
     return;
 };
@@ -30,6 +31,7 @@ const CartProvider = (props) => {
         dispatchCartAction({ type: "ADD", item: item });
     };
     const removeItemFromCartHandler = (id) => {
+        console.log(`id=${id}`);
         dispatchCartAction({ type: "REMOVE", id: id });
     };
 

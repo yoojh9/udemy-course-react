@@ -47,4 +47,8 @@
 
 ### 12. Refs 및 Forward Ref 작업하기
 
+-   https://github.com/yoojh9/udemy-course-react/commit/c4272d292f75d67b2eff10784001b8e955aec327
+
+### 13. 장바구니 항목 출력하기
+
 -
