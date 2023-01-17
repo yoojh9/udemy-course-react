@@ -35,3 +35,6 @@
 ### 9. 장바구니 Context 추가
 
 -   리액트에서는 관습적으로 전체 state 관리를 위한 폴더명은 store로 한다.
+-   https://github.com/yoojh9/udemy-course-react/commit/92aab912c990e3e0c874f0d0ad356e4fad0330d2
+
+### 10. Context 사용
