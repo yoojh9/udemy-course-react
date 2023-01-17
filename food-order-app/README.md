@@ -42,3 +42,9 @@
 -   https://github.com/yoojh9/udemy-course-react/commit/96b31b9c6a4c731a5e5bcfcec7b4baa0a9eccbe3
 
 ### 11. 장바구니 Reducer 추가
+
+-   https://github.com/yoojh9/udemy-course-react/commit/ece41daca9569eb7725f3875b8aaaf65e49fad66
+
+### 12. Refs 및 Forward Ref 작업하기
+
+-
