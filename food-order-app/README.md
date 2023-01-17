@@ -38,3 +38,7 @@
 -   https://github.com/yoojh9/udemy-course-react/commit/92aab912c990e3e0c874f0d0ad356e4fad0330d2
 
 ### 10. Context 사용
+
+-   https://github.com/yoojh9/udemy-course-react/commit/96b31b9c6a4c731a5e5bcfcec7b4baa0a9eccbe3
+
+### 11. 장바구니 Reducer 추가
