@@ -51,4 +51,6 @@
 
 ### 13. 장바구니 항목 출력하기
 
--
+-   https://github.com/yoojh9/udemy-course-react/commit/a2e9d6b874faf0288e717539e73482a575583666
+
+### 14. 더 복잡한 리듀서로 로직 작업하기
