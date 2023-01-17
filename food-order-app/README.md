@@ -23,3 +23,9 @@
 ### 6. Cart 컴포넌트 추가하기
 
 -   https://github.com/yoojh9/udemy-course-react/commit/0f33336ec8d1c804f1ef91f47ee9c5e8a7ac388d
+
+### 7. React Portal을 통해 모달 추가하기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/624b6503cd5156f7d52d8c9833b8c0de4bb639a6
+
+### 8. Cart 및 모달 State 관리
