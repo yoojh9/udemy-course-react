@@ -61,3 +61,8 @@
 ### 15. 아이템을 이동식으로 만들기
 
 -   Cart Modal 안에서도 추가 / 삭제 되도록 만들기
+-   https://github.com/yoojh9/udemy-course-react/commit/e12a6b1ff49ba9bce166da2566ae9968fb04480e
+
+### 16. useEffect() 훅 사용하기
+
+-   장바구니에 아이템 추가될 때마다 Header에 있는 장바구니 badge 애니메이션 적용

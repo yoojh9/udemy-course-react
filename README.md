@@ -15,3 +15,5 @@ React, Redux. Next.js, TypeScript
 ## [5. Effects, Reducers, Context](https://github.com/yoojh9/udemy-course-react/tree/main/react-advanced-features)
 
 ## [6. Course Project: The Food Order App](https://github.com/yoojh9/udemy-course-react/tree/main/food-order-app)
+
+## [7. Behind The Scenes of React & Optimization Techniques](https://github.com/yoojh9/udemy-course-react/tree/main/react-behind-scenes)
