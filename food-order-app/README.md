@@ -29,3 +29,9 @@
 -   https://github.com/yoojh9/udemy-course-react/commit/624b6503cd5156f7d52d8c9833b8c0de4bb639a6
 
 ### 8. Cart 및 모달 State 관리
+
+-   https://github.com/yoojh9/udemy-course-react/commit/83ad2212579ed1a1d8d8f911f27ec6c7f44b51eb
+
+### 9. 장바구니 Context 추가
+
+-   리액트에서는 관습적으로 전체 state 관리를 위한 폴더명은 store로 한다.
