@@ -54,3 +54,10 @@
 -   https://github.com/yoojh9/udemy-course-react/commit/a2e9d6b874faf0288e717539e73482a575583666
 
 ### 14. 더 복잡한 리듀서로 로직 작업하기
+
+-   ADD 버튼을 누를 경우, 기존에 장바구니에 있는 아이템이면 amount만 늘리고 장바구니에 없던 아이템이면 항목을 추가한다.
+-   https://github.com/yoojh9/udemy-course-react/commit/59ada64ce239388d3d50b1f3fe6131c27a3ce153
+
+### 15. 아이템을 이동식으로 만들기
+
+-   Cart Modal 안에서도 추가 / 삭제 되도록 만들기
