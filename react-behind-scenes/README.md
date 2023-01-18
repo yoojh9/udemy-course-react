@@ -21,9 +21,9 @@
 
 - state, props, context, 컴포넌트에 변경이 발생하면 컴포넌트 함수가 재실행되어 리액트가 이를 재평가하게 된다.
 
-<br>
+<br><br>
 
-### 1) Re-Evaluating Components !== Re-Rendering the DOM
+### Re-Evaluating Components !== Re-Rendering the DOM
 
 <img src="./image2.png" width="600px">
 
@@ -41,3 +41,14 @@
 <img src="./image3.png" width="600px">
 
 - 이렇듯 리액트는 전체 DOM을 다시 렌더링하지 않는다.
+
+<br><br>
+
+## 2. 컴포넌트 업데이트
+- state, props, context 변화는 컴포넌트 함수를 다시 실행시킨다. 하지만 실제 DOM은 가상 스냅샷 간의 차이점만 반영된다.
+- 부모 컴포넌트 함수가 업데이트 되면 자식 컴포넌트 함수도 재실행된다.
+- 부모 컴포넌트가 변경되면 자식 컴포넌트들이 재실행, 재평가된다. 
+- 이렇게 되면 연결된 모든 자식 컴포넌트가 재실행되고 재평가되면 굉장히 많은 함수가 가상 비교되는데 성능에 영향을 미치지 않을까라는 걱정을 할 수도 있지만 사실은 그렇지 않다. 
+
+<br><br>
+
