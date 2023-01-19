@@ -128,3 +128,60 @@ export default React.memo(Button);
 - props가 원시값이라면 previous props와 값이 달라지지 않았을 때 컴포넌트가 재실행되지 않았곘지만 배열이나 객체, 함수를 비교한다면 말이 달라진다.
 - 자바스크립트에서는 배열이나, 객체, 함수는 참조값을 사용하므로 props.onClick === props.previous.onClick을 비교하게 되고 이 둘은 같은 값일 수 없으므로 React.memo는 값이 변경되었다고 인식한다.
 - 즉, React.memo는 props를 통한 객체나 배열, 함수를 가져오는 컴포넌트에는 사용할 수 없을까?
+
+<br><br>
+
+## 4. useCallback
+
+### 1) useCallback()으로 함수 재생성 방지하기
+- React.memo를 객체 prop 값에도 작동하게끔 설정할 수 있다. 객체를 생성하고 저장하는 방식만 조금 변경해주면 된다. 이 작업은 useCallback() 훅을 사용하여 작업하면 된다.
+- useCallback() 훅은 기본적으로 컴포넌트 실행 전반에 걸쳐 함수를 저장할 수 있게 하는 훅으로 리액트에 우리는 이 함수를 저장할 것이고 매번 실행할 때마다 이 함수를 재생성할 필요가 없다는 걸 알릴 수 있다.
+- 이렇게 되면 동일한 함수 객체가 메모리의 동일한 위치에 저장되므로 이를 통해 비교 작업을 할 수 있다. 
+- useCallback()은 우리가 선택한 함수를 리액트의 내부 저장 공간에 저장해서 함수 객체가 실행될 때마다 이를 재사용할 수 있게 한다. 
+
+<br>
+
+- 아래 코드 useCallback의 dependency 배열은 리액트에 toggleParagraphHandler에 저장하려고 하는 이 콜백 함수는 절대 변경되지 않을 것이라고 리액트에 알려주는 배열이다. 따라서 App 컴포넌트가 다시 재평가 되더라도 항상 같은 함수 객체가 사용되게끔 한다.
+
+<br>
+
+```javascript
+  const toggleParagraphHandler = useCallback(() => {
+    setShowParagraph(prev => !prev);
+  },[])
+```
+<br>
+
+- 이제 Button 컴포넌트는 다시 재평가되지 않는다.
+
+<br>
+
+```javascript
+import React, { useCallback, useState } from 'react';
+import Button from './components/UI/Button/Button'
+import './App.css';
+import DemoOutput from './components/Demo/DemoOutput';
+
+function App() {
+  const [showParagraph, setShowParagraph] = useState(false)
+
+  console.log('APP RUNNING')
+
+  const toggleParagraphHandler = useCallback(() => {
+    setShowParagraph(prev => !prev);
+  },[])
+
+  return (
+    <div className="app">
+      <h1>Hi there!</h1>
+      <DemoOutput show={showParagraph}/>
+      <Button onClick={toggleParagraphHandler}>Show Paragraph</Button>
+    </div>
+  );
+}
+
+export default App;
+
+```
+
+<br><br>
