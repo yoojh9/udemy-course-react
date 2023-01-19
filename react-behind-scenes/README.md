@@ -191,31 +191,32 @@ export default App;
 
 - useCallback을 사용하면 함수를 저장하고 이를 재사용할 수 있다.
 - useCallback에 의존성을 따로 주지 않으면 처음에 컴포넌트 생성 시에만 실행되고 다시 실행되지 않는다.
-- 이렇게 종속성에 추가해야 새로운 값이 들어오면 함수를 재생성한다. 
+- 이렇게 종속성에 추가해야 새로운 값이 들어오면 함수를 재생성한다.
 
 <br>
 
 ```javascript
-  const toggleParagraphHandler = useCallback(() => {
-    if(allowToggle){
-      setShowParagraph(prev => !prev);
-    }
-  },[allowToggle])
+const toggleParagraphHandler = useCallback(() => {
+  if (allowToggle) {
+    setShowParagraph((prev) => !prev);
+  }
+}, [allowToggle]);
 ```
 
 <br><br>
 
 ## 5. State 스케줄링 및 일괄 처리 이해하기
+
 - setState()를 실행했다고 해서 state 값이 바로 바뀌지는 않는다. 대신 변경할 데이터로 state 업데이트를 하게끔 예약 한다. 이것이 상태 갱신 예약이다.
 - 리액트는 state 변경을 즉시 처리하지 않는다. 대부분의 경우에 state 변경이 발생하면 state 갱신에 대한 스케줄 작업은 매우 빠르게 발생한다.
 - 결국 상태 변화가 처리되면 리액트가 컴포넌트를 재평가하고 컴포넌트 함수를 재실행한다.
-- 스케줄링 때문에 다수의 예약 state 변화가 동시에 있을 수 있다. 즉 동시에 여러 번의 갱신이 스케줄 될 수 있으므로 setState를 사용할 때는 함수 형식으로 사용하는 것을 권장한다. 
+- 스케줄링 때문에 다수의 예약 state 변화가 동시에 있을 수 있다. 즉 동시에 여러 번의 갱신이 스케줄 될 수 있으므로 setState를 사용할 때는 함수 형식으로 사용하는 것을 권장한다.
 - 이론 상으로 이 스케줄링 작업은 지연될 수 있으므로 이는 상태 변경이 순서대로 처리되고 이전 상태를 기반으로 가장 최신의 state를 얻을 수 있는 가장 안전한 방법이다.
 
 <br>
 
 ```javascript
-setState(prev => !prev)
+setState((prev) => !prev);
 ```
 
 <br>
@@ -229,9 +230,9 @@ const [emailIsValid, setEmailIsValid] = useState(false);
 const [passwordIsValid, setPasswordIsValid] = useState(false);
 const [formIsvalid, setFormIsValid] = useState(false);
 
-useEffect(()=>{
+useEffect(() => {
   setFormIsValid(emailIsValid && passwordIsValid);
-},[emailIsValid, passwordIsValid])
+}, [emailIsValid, passwordIsValid]);
 ```
 
 <br>
@@ -246,5 +247,138 @@ const navigateHandler = (navPath) => {
   setCurrentNavPath(navPath);
   // State was NOT updated here!
   setDrwerIsOpen(false);
-}
+};
 ```
+
+
+<br><br>
+
+## 6. useMemo()
+
+- 아래와 같은 코드는 성능에 민감할 수 있다. 리스트가 짧을 때는 괜찮곘지만 리스트가 길면 성능에 영향을 미친다. 물론 이런 코드는 실행되어야 하지만 전체 컴포넌트가 재평가될 때마다 이런 코드를 실행하고 싶지 않을 수 있다. 
+
+<br>
+
+```javascript
+const DemoList = (props) => {
+  const sortList = props.item.sort((a, b) => a - b);
+
+  return (
+    <div className={classes.list}>
+      <h2>{props.title}</h2>
+      <ul>
+        {sortedList.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default React.memo(DemoList);
+
+```
+
+<br>
+
+- 아래 items는 참조값인 배열이므로 배열 값이 바뀌지 않더라도 App 컴포넌트가 재실행되면 DemoList 컴포넌트는 다시 실행된다.
+- 배열은 참조값이므로 배열이 같은 원소, 같은 순서를 갖고 있어도 이 둘은 절대 같은 배열이 아니다. 메모리 안에서 다른 위치를 점하고 있기 때문이다.
+- sorting은 대표적인 성능 집약적 작업 중 하나이다.
+
+<br>
+
+```javascript
+const App = () => {
+  const [listTitle, setListTitle] = useState("My List");
+
+  const changeTitleHandler = useCallback(() => {
+    setListTitle("New Title");
+  }, []);
+
+  return (
+    <div className="app">
+      <DemoList title={listTitle} items={[5, 3, 1, 10, 9]} />
+      <Button onClick={changeTitleHandler}>Change List Title</Button>
+    </div>
+  );
+};
+
+export default App;
+```
+
+<br>
+
+- 이를 위해서 useMemo를 사용해보자.
+
+```javascript
+import React, { useMemo } from 'react';
+
+import classes from './DemoList.module.css';
+
+const DemoList = (props) => {
+  const { items } = props;
+
+  const sortedList = useMemo(() => {
+    console.log('Items sorted');
+    return items.sort((a, b) => a - b);
+  }, [items]); 
+  
+  console.log('DemoList RUNNING');
+
+  return (
+    <div className={classes.list}>
+      <h2>{props.title}</h2>
+      <ul>
+        {sortedList.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default React.memo(DemoList);
+```
+
+<br>
+
+```javascript
+import React, { useCallback, useMemo, useState } from 'react';
+import Button from './components/UI/Button/Button'
+import './App.css';
+import DemoOutput from './components/Demo/DemoOutput';
+import DemoList from './components/Demo/DemoList';
+
+function App() {
+  const [showParagraph, setShowParagraph] = useState(false);
+  const [allowToggle, setAllowToggle] = useState(false);
+  const [listTitle, setListTitle] = useState('My List');
+
+  console.log('APP RUNNING')
+
+  const changeTitleHandler = useCallback(() => {
+    setListTitle('New Title')
+  },[])
+
+  const listItems = useMemo(()=>[5, 3, 1, 10, 9], [])
+
+
+  return (
+    <div className="app">
+      <DemoList title={listTitle} items={listItems}/>
+      <Button onClick={changeTitleHandler}>Change List Title</Button>
+    </div>
+  );
+}
+
+export default App;
+
+```
+
+<br>
+
+- useMemo는 useCallback에 비해 사용 빈도는 낮을 것이다. useMemo를 통해 데이터를 기억하면 이는 메모리를 사용하는 것이고 일정 성능을 사용하는 것이므로 useMemo는 상황에 따라 써야 한다.
+- 어플리케이션이 느려지거나 어느 부분을 개선해야 할 때 이런식으로 최적화가 가능한 부분을 찾아보자.
+- useCallback은 함수를 caching 하고, useMemo는 결과값을 caching 한다.
+- useMemo는 memoised 된 값을 return 하는 hook이다. useMemo는 이전 값을 기억해두었다가 조건에 따라 재활용하여 성능을 최적화 하는 용도로 사용된다. (특정 value 재사용)
+- useCallback은 컴포넌트가 렌더링 될 때마다 내부적으로 사용된 함수가 새롭게 생성되는 경우, 자식 컴포넌트에 prop으로 새로 생성된 함수가 넘겨지게 되면 불필요한 리렌더링이 일어날 수 있다. (특정 함수 재사용) 자식 컴포넌트에 함수를 props로 줄 때는 반드시 **useCallback**을 사용하여 리렌더링이 안되도록 하자.
