@@ -202,3 +202,49 @@ export default App;
     }
   },[allowToggle])
 ```
+
+<br><br>
+
+## 5. State 스케줄링 및 일괄 처리 이해하기
+- setState()를 실행했다고 해서 state 값이 바로 바뀌지는 않는다. 대신 변경할 데이터로 state 업데이트를 하게끔 예약 한다. 이것이 상태 갱신 예약이다.
+- 리액트는 state 변경을 즉시 처리하지 않는다. 대부분의 경우에 state 변경이 발생하면 state 갱신에 대한 스케줄 작업은 매우 빠르게 발생한다.
+- 결국 상태 변화가 처리되면 리액트가 컴포넌트를 재평가하고 컴포넌트 함수를 재실행한다.
+- 스케줄링 때문에 다수의 예약 state 변화가 동시에 있을 수 있다. 즉 동시에 여러 번의 갱신이 스케줄 될 수 있으므로 setState를 사용할 때는 함수 형식으로 사용하는 것을 권장한다. 
+- 이론 상으로 이 스케줄링 작업은 지연될 수 있으므로 이는 상태 변경이 순서대로 처리되고 이전 상태를 기반으로 가장 최신의 state를 얻을 수 있는 가장 안전한 방법이다.
+
+<br>
+
+```javascript
+setState(prev => !prev)
+```
+
+<br>
+
+- 이전 상태의 스냅샷을 기반으로 상태를 갱신하기 위해 함수 형식을 사용하는 것과 비슷하게 useEffect 또한 상태 또는 종속된 값이 변경될 때마다 의존성 메커니즘을 통해 내부에서 선언한 effect가 재실행 되도록 한다.
+
+<br>
+
+```javascript
+const [emailIsValid, setEmailIsValid] = useState(false);
+const [passwordIsValid, setPasswordIsValid] = useState(false);
+const [formIsvalid, setFormIsValid] = useState(false);
+
+useEffect(()=>{
+  setFormIsValid(emailIsValid && passwordIsValid);
+},[emailIsValid, passwordIsValid])
+```
+
+<br>
+
+- 즉 아래 코드는 state가 바로 변경이 되는게 아니라 갱신 예약이 된 뒤 컴포넌트가 다시 실행되고 컴포넌트가 다시 실행되고 나서야 사용 가능한 최신 상태가 된다
+- 아래 코드처럼 두 개의 상태 갱신이 같은 코드 조각에 존재한다면 즉 같은 함수가 서로 다른 프로미스에 있지 않고 같은 곳에 존재한다면 이 둘 사이에 시간 지연과 같은 현상은 발생하지 않는다. 리액트는 이들에 대한 상태 갱신을 하나의 동기화 프로세스에서 같이 실행한다. 예를 들어 하나의 함수가 어떠한 콜백이나 프로미스 없이 실행된다면 리액트는 이 함수로부터 발생하는 모든 상태 갱신을 하나의 상태 갱신 작업으로 처리한다.
+
+<br>
+
+```javascript
+const navigateHandler = (navPath) => {
+  setCurrentNavPath(navPath);
+  // State was NOT updated here!
+  setDrwerIsOpen(false);
+}
+```
