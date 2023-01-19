@@ -17,3 +17,5 @@ React, Redux. Next.js, TypeScript
 ## [6. Course Project: The Food Order App](https://github.com/yoojh9/udemy-course-react/tree/main/food-order-app)
 
 ## [7. Behind The Scenes of React & Optimization Techniques](https://github.com/yoojh9/udemy-course-react/tree/main/react-behind-scenes)
+
+## [8. Class-based Components](https://github.com/yoojh9/udemy-course-react/tree/main/class-based-components)
