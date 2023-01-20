@@ -19,3 +19,5 @@ React, Redux. Next.js, TypeScript
 ## [7. Behind The Scenes of React & Optimization Techniques](https://github.com/yoojh9/udemy-course-react/tree/main/react-behind-scenes)
 
 ## [8. Class-based Components](https://github.com/yoojh9/udemy-course-react/tree/main/class-based-components)
+
+## [9. Connecting a Backend & Database](https://github.com/yoojh9/udemy-course-react/tree/main/send-http-requests)
