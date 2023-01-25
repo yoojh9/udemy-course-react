@@ -21,3 +21,5 @@ React, Redux. Next.js, TypeScript
 ## [8. Class-based Components](https://github.com/yoojh9/udemy-course-react/tree/main/class-based-components)
 
 ## [9. Connecting a Backend & Database](https://github.com/yoojh9/udemy-course-react/tree/main/send-http-requests)
+
+## [10. Building Custom Hooks](https://github.com/yoojh9/udemy-course-react/tree/main/building-custom-hooks)
