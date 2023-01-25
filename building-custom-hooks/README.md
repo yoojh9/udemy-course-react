@@ -41,4 +41,4 @@ const useCounter = (forwards = true) => {
 }
 
 export default useCounter;
-````
+```

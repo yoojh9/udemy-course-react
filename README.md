@@ -23,3 +23,5 @@ React, Redux. Next.js, TypeScript
 ## [9. Connecting a Backend & Database](https://github.com/yoojh9/udemy-course-react/tree/main/send-http-requests)
 
 ## [10. Building Custom Hooks](https://github.com/yoojh9/udemy-course-react/tree/main/building-custom-hooks)
+
+## [11. Custom Hooks Example](https://github.com/yoojh9/udemy-course-react/tree/main/custom-hooks-example)
