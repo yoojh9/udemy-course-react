@@ -100,6 +100,10 @@ export default App;
 
 ## 2) 사용자 정의 hook 조정하기
 
+- https://github.com/yoojh9/udemy-course-react/commit/749a85f478ce9633f6145e7d9fabf2c28b78903e
+
+<br>
+
 ```javascript
 // App.js
 import React, { useEffect, useState } from "react";
@@ -189,3 +193,56 @@ const useHttp = () => {
 export default useHttp;
 
 ```
+
+<br><br>
+
+## 3) 더 많은 컴포넌트에서 사용자 정의 훅 사용하기
+
+### (1) bind
+- bind 메소드는 함수를 사전에 구성할 수 있게 해준다. 호출 즉시 함수가 실행되지는 않는다. 
+
+<br>
+
+```javascript
+// NewTask.js
+import useHttp from '../../hooks/use-http';
+
+import Section from '../UI/Section';
+import TaskForm from './TaskForm';
+
+const NewTask = (props) => {
+  const {isLoading, error, sendRequest: sendTaskRequest} = useHttp();
+
+  const createTask = (taskText, taskData) => {
+    const generatedId = taskData.name; // firebase-specific => "name" contains generated id
+    const createdTask = { id: generatedId, text: taskText };
+
+    props.onAddTask(createdTask);
+  }
+
+  const enterTaskHandler = async (taskText) => {
+    sendTaskRequest({
+      url: 'https://react-http-1c05f-default-rtdb.firebaseio.com/tasks.json',
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ text: taskText }),
+    }, createTask.bind(null, taskText))
+  };
+
+  return (
+    <Section>
+      <TaskForm onEnterTask={enterTaskHandler} loading={isLoading} />
+      {error && <p>{error}</p>}
+    </Section>
+  );
+};
+
+export default NewTask;
+
+```
+
+<br>
+
+- 사용자 정의 훅을 잘 사용하면 중복되는 로직, 특히 상태 설정과 같은 로직들을 커스텀 훅으로 아웃소싱 할 수 있다.
