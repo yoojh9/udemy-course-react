@@ -98,6 +98,10 @@ export default SimpleInput;
 
 ## 6) 전체 양식 유효성 관리하기
 
+- https://github.com/yoojh9/udemy-course-react/commit/bcd6c5c378b6089e32fc351e2482bbbddd2e192e
+
+<br>
+
 ```javascript
 // SimpleInput.js
 import { useState } from "react";
