@@ -22,3 +22,8 @@
 <br><br>
 
 ## 4) "was touched" State 처리하기
+- https://github.com/yoojh9/udemy-course-react/commit/b3af2f7acac044da070668da82265fd93299c74b
+
+<br><br>
+
+## 5) 리팩토링
