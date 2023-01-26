@@ -22,11 +22,13 @@
 <br><br>
 
 ## 4) "was touched" State 처리하기
+
 - https://github.com/yoojh9/udemy-course-react/commit/b3af2f7acac044da070668da82265fd93299c74b
 
 <br><br>
 
 ## 5) 리팩토링
+
 - https://github.com/yoojh9/udemy-course-react/commit/9b4727a1ab89faf0a703e497bf1cb42df6529ebe
 
 <br>
@@ -91,7 +93,6 @@ const SimpleInput = (props) => {
 };
 
 export default SimpleInput;
-
 ```
 
 <br><br>
@@ -114,8 +115,8 @@ const SimpleInput = (props) => {
   const nameInputIsInValid = !enteredNameIsValid && enteredNameTouched;
 
   let formIsValid = false;
-  if(enteredNameIsValid) {
-    formIsValid = true
+  if (enteredNameIsValid) {
+    formIsValid = true;
   }
 
   const nameInputChangeHandler = (event) => {
@@ -180,19 +181,18 @@ const SimpleInput = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredNameTouched, setEnteredNameTouched] = useState(false);
 
-  const [enteredEmail, setEnteredEmail] = useState('');
+  const [enteredEmail, setEnteredEmail] = useState("");
   const [enteredEmailTouched, setEnteredEmailTouched] = useState(false);
 
   const enteredNameIsValid = enteredName.trim() !== "";
   const nameInputIsInValid = !enteredNameIsValid && enteredNameTouched;
 
-  const enteredEmailIsValid = enteredEmail.includes('@');
-  const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched
-
+  const enteredEmailIsValid = enteredEmail.includes("@");
+  const emailInputIsInvalid = !enteredEmailIsValid && enteredEmailTouched;
 
   let formIsValid = false;
-  if(enteredNameIsValid && enteredEmailIsValid) {
-    formIsValid = true
+  if (enteredNameIsValid && enteredEmailIsValid) {
+    formIsValid = true;
   }
 
   const nameInputChangeHandler = (event) => {
@@ -204,12 +204,12 @@ const SimpleInput = (props) => {
   };
 
   const emailInputChangeHandler = (event) => {
-    setEnteredEmail(event.target.value)
-  }
+    setEnteredEmail(event.target.value);
+  };
 
   const emailInputBlurHandler = (event) => {
     setEnteredEmailTouched(true);
-  }
+  };
 
   const formSubmissionHandler = (event) => {
     event.preventDefault();
@@ -221,7 +221,7 @@ const SimpleInput = (props) => {
     }
     // nameInputRef.current.value = ''; => NOT IDEAL. DON'T MANIPULATE THE DOM
     setEnteredName("");
-    setEnteredEmail('');
+    setEnteredEmail("");
     setEnteredNameTouched(false);
     setEnteredEmailTouched(false);
   };
@@ -230,7 +230,9 @@ const SimpleInput = (props) => {
     ? "form-control invalid"
     : "form-control";
 
-  const emailInputClasses = emailInputIsInvalid ? "form-control invalid" : "form-control";
+  const emailInputClasses = emailInputIsInvalid
+    ? "form-control invalid"
+    : "form-control";
 
   return (
     <form onSubmit={formSubmissionHandler}>
@@ -246,7 +248,6 @@ const SimpleInput = (props) => {
         {nameInputIsInValid && (
           <p className="error-text">Name must not be empty.</p>
         )}
-        
       </div>
       <div className={emailInputClasses}>
         <label htmlFor="email">Email</label>
@@ -260,7 +261,6 @@ const SimpleInput = (props) => {
         {emailInputIsInvalid && (
           <p className="error-text">Please enter a valid email.</p>
         )}
-        
       </div>
       <div className="form-actions">
         <button disabled={!formIsValid}>Submit</button>
@@ -270,7 +270,6 @@ const SimpleInput = (props) => {
 };
 
 export default SimpleInput;
-
 ```
 
 <br><br>
@@ -302,9 +301,9 @@ const useInput = (validateValue) => {
   };
 
   const reset = () => {
-    setEnteredValue('');
+    setEnteredValue("");
     setIsTouched(false);
-  }
+  };
 
   return {
     value: enteredValue,
@@ -312,10 +311,9 @@ const useInput = (validateValue) => {
     hasError,
     valueChangeHandler,
     inputBlurHandler,
-    reset
-  }
-
-}
+    reset,
+  };
+};
 
 export default useInput;
 ```
@@ -412,9 +410,14 @@ const SimpleInput = (props) => {
 };
 
 export default SimpleInput;
-
 ```
 
 <br><br>
 
 ## 10) 이메일 input에도 커스텀 Hook 추가하기
+
+- https://github.com/yoojh9/udemy-course-react/commit/2db1eb608c5867ab796548fe92ec168df972c02c
+
+<br><br>
+
+## 11) BasicForm.js에 커스텀 hook 적용하기
