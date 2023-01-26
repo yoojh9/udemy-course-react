@@ -278,6 +278,9 @@ export default SimpleInput;
 ## 9) 사용자 지정 입력 hook 추가하기
 
 - 위처럼 중복된 input 입력 및 검증 코드는 hook을 만들어서 처리할 수 있다.
+- https://github.com/yoojh9/udemy-course-react/commit/138a03a1d50d250d58f36d432aece40a1c2e37f5
+
+<br>
 
 ```javascript
 // use-input.js
@@ -411,3 +414,7 @@ const SimpleInput = (props) => {
 export default SimpleInput;
 
 ```
+
+<br><br>
+
+## 10) 이메일 input에도 커스텀 Hook 추가하기
