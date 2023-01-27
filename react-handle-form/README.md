@@ -432,3 +432,4 @@ export default SimpleInput;
 <br><br>
 
 ## 13) useReducer() 사용하기
+- https://github.com/yoojh9/udemy-course-react/commit/91fd5866c2fc1eba852b3ec701cf12586fa1cfe5
