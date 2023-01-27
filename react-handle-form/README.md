@@ -421,3 +421,14 @@ export default SimpleInput;
 <br><br>
 
 ## 11) BasicForm.js에 커스텀 hook 적용하기
+- https://github.com/yoojh9/udemy-course-react/commit/e0785388b9334cde02e26df9db46210a3cb9eddd
+
+<br><br>
+
+## 12) FORMIK
+- https://formik.org/
+- 복잡한 폼을 만들고 검증할 때 유용한 라이브러리
+
+<br><br>
+
+## 13) useReducer() 사용하기
