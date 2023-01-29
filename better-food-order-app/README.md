@@ -31,3 +31,5 @@
 <br><br>
 
 ## 5) 양식 유효성 검사 추가하기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/f983582f78965c47e40e78f0bdb4dcbf50ce1d1d
