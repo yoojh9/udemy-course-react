@@ -32,4 +32,4 @@ React, Redux. Next.js, TypeScript
 
 ## [14. Understanding Redux](https://github.com/yoojh9/udemy-course-react/tree/main/understanding-redux)
 
-## [15. React Redux Example](https://github.com/yoojh9/udemy-course-react/react-redux-example)
+## [15. React Redux Example](https://github.com/yoojh9/udemy-course-react/tree/main/react-redux-example)
