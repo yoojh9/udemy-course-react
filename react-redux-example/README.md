@@ -145,7 +145,7 @@ export default Counter;
 
 <br>
 
-## (7) 리덕스 State를 올바르게 사용하는 방법
+### (7) 리덕스 State를 올바르게 사용하는 방법
 
 -   아래 reducer 코드는 redux로 작업할 때 절대 작성하면 안된다
 
