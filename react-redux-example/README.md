@@ -327,6 +327,87 @@ export default Counter;
 
 -   https://github.com/yoojh9/udemy-course-react/commit/f9809751d215a7bec04f538f4d6ce255420944d7
 
-<br><br>
+<br>
 
 ### (4) 다중 Slice 작업하기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/87f0e96b136e0fad2974cfd8a4725e8d028b107b
+
+<br>
+
+### (5) 스토어 코드 분할하기
+
+```javascript
+// store/index.js
+
+import { configureStore } from "@reduxjs/toolkit";
+import authReducer from "./auth";
+import couterReducer from "./counter";
+
+const store = configureStore({
+    reducer: {
+        counter: couterReducer,
+        auth: authReducer,
+    },
+});
+
+export default store;
+```
+
+<br>
+
+```javascript
+// store/counter.js
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialCounterState = { counter: 0, showCounter: true };
+
+const counterSlice = createSlice({
+    name: "counter",
+    initialState: initialCounterState,
+    reducers: {
+        increment(state) {
+            state.counter++;
+        },
+        decrement(state) {
+            state.counter--;
+        },
+        increase(state, action) {
+            state.counter += action.payload;
+        },
+        toggleCounter(state) {
+            state.showCounter = !state.showCounter;
+        },
+    },
+});
+
+export const counterActions = counterSlice.actions;
+
+export default counterSlice.reducer;
+```
+
+<br>
+
+```javascript
+// store/auth.js
+
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialAuthState = { isAuthenticated: false };
+
+const authSlice = createSlice({
+    name: "auth",
+    initialState: initialAuthState,
+    reducers: {
+        login(state) {
+            state.isAuthenticated = true;
+        },
+        logout(state) {
+            state.isAuthenticated = false;
+        },
+    },
+});
+export const authActions = authSlice.actions;
+
+export default authSlice.reducer;
+```
