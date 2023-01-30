@@ -86,3 +86,40 @@ return (
 -   우리는 action이 있고 컴포넌트는 action을 dispatch 한다. 그래서 컴포넌트가 어떤 액션을 trigger 한다고 말할 수도 있다. 액션은 사실 단순히 자바스크립트 객체이다. 그 객체가 리듀서가 실행해야 할 작업을 설명하게 된다. 그래서 Redux는 그 액션을 Reducer로 전달하고 그 작업을 Reducer가 수행하게 된다.
 -   그리고 나서 Reducer는 새로운 State를 반환하고 그게 실제로 중앙 데이터 저장소의 기존 상태를 대체하게 된다.
 -   데이터 저장소의 state가 변경되면 구독 중인 컴포넌트가 알림을 받게 되고 컴포넌트는 UI를 업데이트 할 수 있게 된다.
+
+<br>
+
+### (1) Reducer Function
+
+-   리듀서 함수는 표준 자바스크립트 함수지만 리덕스 라이브러리에 의해 호출될 것이다. 리듀서 함수는 항상 2개의 파라미터를 받는다. 바로 기존의 state와 dispatched된 action을 받는다. 그리고 이 리듀서 함수는 항상 새로운 state 객체를 리턴해야만 한다.
+
+<br>
+<img src="./image5.png">
+<br>
+
+-   Redux 기본 예제
+
+```javascript
+const { configureStore } = require("@reduxjs/toolkit");
+
+const counterReducer = (state = { counter: 0 }, action) => {
+    return {
+        counter: state.counter + 1,
+    };
+};
+
+// const store = redux.createStore() // legacy
+const store = configureStore({
+    reducer: counterReducer,
+});
+
+const counterSubscriber = () => {
+    const latestState = store.getState();
+    console.log(latestState);
+};
+
+// 리덕스는 데이터 저장소가 변경될 때마다 couterSubscriber()를 실행시켜 준다.
+store.subscribe(counterSubscriber);
+
+store.dispatch({ type: "increment" });
+```

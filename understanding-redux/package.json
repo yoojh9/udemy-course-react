@@ -1,0 +1,15 @@
+{
+  "name": "understanding-redux",
+  "version": "1.0.0",
+  "description": "-   What is Redux ? And Why? -   Redux Basics & Using Redux with React -   Redux Toolkit",
+  "main": "redux-demo.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jeonghyun",
+  "license": "ISC",
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
+    "redux": "^4.2.1"
+  }
+}
