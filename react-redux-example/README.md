@@ -132,3 +132,5 @@ export default Counter;
 ```
 
 <br><br>
+
+## 6) 작업에 payload 연결하기
