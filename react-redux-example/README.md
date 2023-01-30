@@ -216,7 +216,7 @@ createSlice({
 
 <br><br>
 
-### (2) redux toolkit Slice 사용하기
+### (2) redux toolkit State 연결하기
 
 -   configureStore는 여러개의 reducer를 하나의 reducer로 관리할 수 있다.
 -   configureStore를 이용하면 여러 리듀서를 하나의 리듀서 맵으로 관리할 수 있다. 이는 모든 리듀서를 하나의 큰 리듀서로 병합해 준다.
