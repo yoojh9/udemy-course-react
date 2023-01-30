@@ -33,3 +33,13 @@
 ## 5) 양식 유효성 검사 추가하기
 
 -   https://github.com/yoojh9/udemy-course-react/commit/f983582f78965c47e40e78f0bdb4dcbf50ce1d1d
+
+<br><br>
+
+## 6) 장바구니 데이터 제출 및 전송하기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/589e348db8cd5293bbfb78000609d3625b5da535
+
+<br><br>
+
+## 7) 더 나은 사용자 피드백 추가하기
