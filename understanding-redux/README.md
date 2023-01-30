@@ -98,6 +98,9 @@ return (
 <br>
 
 -   Redux 기본 예제
+-   https://github.com/yoojh9/udemy-course-react/commit/c96fefc97181fb0ecdd14bced394aab4abd2a7c1#diff-484c092cdb8038b0811b03813bea85b32c909a67f58d8fe7417ba7085c4c1027
+
+<br>
 
 ```javascript
 const { configureStore } = require("@reduxjs/toolkit");
