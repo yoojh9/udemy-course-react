@@ -3,12 +3,12 @@
 ## 1) React Redux 사용하기
 
 ```
-$ npm install react-redux @reduxjs/toolkit
+$ npm install redux react-redux @reduxjs/toolkit
 ```
 
-<br><br>
+<br>
 
-## 2) 리액트 용 리덕스 스토어 만들기
+### (1) 리액트 용 리덕스 스토어 만들기
 
 ```javascript
 // store/index.js
@@ -36,9 +36,9 @@ const store = configureStore({
 export default store;
 ```
 
-<br><br>
+<br>
 
-## 3) 리액트 컴포넌트에 스토어 제공하기
+### (2) 리액트 컴포넌트에 스토어 제공하기
 
 ```javascript
 // index.js
@@ -59,9 +59,9 @@ root.render(
 );
 ```
 
-<br><br>
+<br>
 
-## 4) 내부 컴포넌트에서 리덕스 데이터 사용하기
+### (3) 내부 컴포넌트에서 리덕스 데이터 사용하기
 
 -   Counter 컴포넌트에서 리덕스 스토어를 활용하려면 react-redux 만든 커스텀 훅인 useSelector()를 사용한다.
 -   useSelector()를 사용하면 react-redux는 이 컴포넌트를 위해 리덕스 저장소에 자동으로 구독을 설정한다. 그래서 컴포넌트는 리덕스 저장소에서 데이터가 변경될 때마다 자동으로 업데이트 되고 최신 카운터를 받게 된다.
@@ -89,9 +89,9 @@ const Counter = () => {
 export default Counter;
 ```
 
-<br><br>
+<br>
 
-## 5) 내부 컴포넌트에서 Action Dispatch 하기
+### (4) 내부 컴포넌트에서 Action Dispatch 하기
 
 -   useDispatch() 훅을 사용한다.
 
@@ -131,21 +131,21 @@ const Counter = () => {
 export default Counter;
 ```
 
-<br><br>
+<br>
 
-## 6) 작업에 payload 연결하기
+### (5) 작업에 payload 연결하기
 
 -   https://github.com/yoojh9/udemy-course-react/commit/a915254803d1887026ee1da71079557e73385f5b
 
-<br><br>
+<br>
 
-## 7) 여러 state 속성 작업하기
+### (6) 여러 state 속성 작업하기
 
 -   https://github.com/yoojh9/udemy-course-react/commit/3b6d5f7451d83918b6bcbb031dbe8b87cb4a8b44
 
-<br><br>
+<br>
 
-## 8) 리덕스 State를 올바르게 사용하는 방법
+## (7) 리덕스 State를 올바르게 사용하는 방법
 
 -   아래 reducer 코드는 redux로 작업할 때 절대 작성하면 안된다
 
@@ -167,7 +167,7 @@ const counterReducer = (state = initialState, action) => {
 
 <br><br>
 
-## 9) redux-toolkit 사용하기
+## 2) redux-toolkit 사용하기
 
 -   리덕스를 더 편리하고 쉽게 작동할 수 있게 해준다.
 
@@ -322,3 +322,11 @@ const Counter = () => {
 
 export default Counter;
 ```
+
+<br>
+
+-   https://github.com/yoojh9/udemy-course-react/commit/f9809751d215a7bec04f538f4d6ce255420944d7
+
+<br><br>
+
+### (4) 다중 Slice 작업하기
