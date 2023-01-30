@@ -167,7 +167,7 @@ const counterReducer = (state = initialState, action) => {
 
 <br><br>
 
-## 9) redux-toolkit 소개
+## 9) redux-toolkit 사용하기
 
 -   리덕스를 더 편리하고 쉽게 작동할 수 있게 해준다.
 
@@ -207,6 +207,25 @@ createSlice({
             state.showCounter = !state.showCounter;
         },
     },
+});
+```
+
+<br>
+
+-   https://github.com/yoojh9/udemy-course-react/commit/79981e7400d00623cfc06d08849f610092a3b841#diff-474a9815fd233d252207393e20e4efe50f4328ba614607a3d347b1c5eff3e880
+
+<br><br>
+
+### (2) redux toolkit Slice 사용하기
+
+-   configureStore는 여러개의 reducer를 하나의 reducer로 관리할 수 있다.
+-   configureStore를 이용하면 여러 리듀서를 하나의 리듀서 맵으로 관리할 수 있다. 이는 모든 리듀서를 하나의 큰 리듀서로 병합해 준다.
+
+<br>
+
+```javascript
+const store = configureStore({
+    reducer: { counter: counterSlice.reducer },
 });
 ```
 
