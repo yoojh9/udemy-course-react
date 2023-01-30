@@ -140,3 +140,28 @@ export default Counter;
 <br><br>
 
 ## 7) 여러 state 속성 작업하기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/3b6d5f7451d83918b6bcbb031dbe8b87cb4a8b44
+
+<br><br>
+
+## 8) 리덕스 State를 올바르게 사용하는 방법
+
+-   아래 reducer 코드는 redux로 작업할 때 절대 작성하면 안된다
+
+<br>
+
+```javascript
+const counterReducer = (state = initialState, action) => {
+    if (action.type === "increment") {
+        state.counter++;
+        return state;
+    }
+};
+```
+
+<br>
+
+-   "절대 기존의 state를 변경해서는 안된다." 이로 인해 예측 불가능한 버그가 발생할 수 있고, 프로그램 디버깅도 어려워질 수 있다.
+-   대신에 새로운 state 객체를 반환하여 항상 재정의해야 햔다.
+-
