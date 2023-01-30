@@ -3,7 +3,7 @@
 ## 1) React Redux 사용하기
 
 ```
-$ npm install redux react-redux @redux/toolkit
+$ npm install react-redux @reduxjs/toolkit
 ```
 
 <br><br>
@@ -164,4 +164,50 @@ const counterReducer = (state = initialState, action) => {
 
 -   "절대 기존의 state를 변경해서는 안된다." 이로 인해 예측 불가능한 버그가 발생할 수 있고, 프로그램 디버깅도 어려워질 수 있다.
 -   대신에 새로운 state 객체를 반환하여 항상 재정의해야 햔다.
--
+
+<br><br>
+
+## 9) redux-toolkit 소개
+
+-   리덕스를 더 편리하고 쉽게 작동할 수 있게 해준다.
+
+<br>
+
+```
+$ npm install @reduxjs/toolkit
+```
+
+-   redux는 이미 @redux/toolkit에 포함되어 있으므로 더이상 redux 라이브러리는 필요하지 않으므로 package.json에서 삭제한다.
+
+<br>
+
+### (1) createSlice
+
+-   createSlice를 사용하면 기존 state를 절대 바꿀 수 없다. 왜냐하면 reduxjs/toolkit은 내부적으로 immer라는 다른 패키지를 사용하는데 이런 코드르 감지하고 자동으로 원래 있는 상태를 복제하여 새로운 상태 객체를 생성한다.
+
+-   그러므로 아래와 같이 작성할 수 있다.
+
+<br>
+
+```javascript
+createSlice({
+    name: "counter",
+    initialState,
+    reducers: {
+        increment(state) {
+            state.counter++;
+        },
+        decrement(state) {
+            state.counter--;
+        },
+        increase(state, action) {
+            state.counter += action.amount;
+        },
+        toggleCounter(state) {
+            state.showCounter = !state.showCounter;
+        },
+    },
+});
+```
+
+<br>
