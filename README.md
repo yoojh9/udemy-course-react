@@ -29,3 +29,5 @@ React, Redux. Next.js, TypeScript
 ## [12. Handling Forms & User Input](https://github.com/yoojh9/udemy-course-react/tree/main/react-handle-form)
 
 ## [13. (Better) Food Order APP](https://github.com/yoojh9/udemy-course-react/tree/main/better-food-order-app)
+
+## [14. Understanding Redux](https://github.com/yoojh9/udemy-course-react/tree/main/understanding-redux)
