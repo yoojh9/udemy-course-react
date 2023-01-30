@@ -134,3 +134,9 @@ export default Counter;
 <br><br>
 
 ## 6) 작업에 payload 연결하기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/a915254803d1887026ee1da71079557e73385f5b
+
+<br><br>
+
+## 7) 여러 state 속성 작업하기
