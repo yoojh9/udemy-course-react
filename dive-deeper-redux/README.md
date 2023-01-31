@@ -18,7 +18,7 @@
 
 <br>
 
-### (1) 리덕스와 함께 useEffect 사용하기
+### (1) useEffect 사용하기
 
 ```javascript
 // App.js
@@ -53,3 +53,9 @@ function App() {
 
 export default App;
 ```
+
+<br>
+
+-   https://github.com/yoojh9/udemy-course-react/commit/6ff16412fa1935fecda87c5a7e1109d4fdde1833
+
+<br>
