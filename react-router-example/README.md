@@ -141,3 +141,7 @@ const Mainheader = () => {
 
 export default Mainheader;
 ```
+
+<br><br>
+
+## 6) Params를 사용하여 동적 경로 추가하기
