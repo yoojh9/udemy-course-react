@@ -68,7 +68,7 @@ export default App;
 
 -   Thunk란 action을 지연시키는 함수이다.
 -   action 객체를 즉시 반환하지 않는 action creator를 작성하기 위해 Thunk로 action creator를 작성할 수 있다.
--
+-   https://github.com/yoojh9/udemy-course-react/tree/8dca1658777e6cdf6f80b7409ef92a1dba48ed46/dive-deeper-redux
 
 <br>
 
