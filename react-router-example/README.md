@@ -71,7 +71,7 @@ export default App;
 
 <br><br>
 
-## 4) <Link/> 사용하기
+## 4) \<Link\> 사용하기
 
 -   react-router-dom 의 \<Link/\> 컴포넌트를 이용하면 \<a> 태그의 href와 다르게 화면 전체가 새로고침 되지 않는다. \<Link\> 태그는 같은 페이지 안에 머물게 하고, React 어플리케이션이 전체 페이지를 re-render 하지 않게 하고 변경되는 컴포넌트만 렌더한다. 이는 네비게이션을 좀 더 빠르고 부드럽게 처리되도록 만들어준다.
 -   반면 \<a\> 태그의 href는 전체 페이지를 reload 하고 네비게이션 성능이 느려질 수 있다.
@@ -93,6 +93,45 @@ const Mainheader = () => {
                     </li>
                     <li>
                         <Link to="/products">Products</Link>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+    );
+};
+
+export default Mainheader;
+```
+
+<br><br>
+
+## 5) \<NavLink\> 사용하기
+
+-   \<NavLink\>는 \<Link\>의 더 개선된 버전으로 'activeClassName' prop 등을 더 사용할 수 있어 active 라우트와 inactive 라우트를 더 구별하기 쉽게 해준다.
+
+<br>
+
+```javascript
+import { NavLink } from "react-router-dom";
+import classes from "./Mainheader.module.css";
+
+const Mainheader = () => {
+    return (
+        <header className={classes.header}>
+            <nav>
+                <ul>
+                    <li>
+                        <NavLink activeClassName={classes.active} to="/welcome">
+                            Welcome
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink
+                            activeClassName={classes.active}
+                            to="/products"
+                        >
+                            Products
+                        </NavLink>
                     </li>
                 </ul>
             </nav>
