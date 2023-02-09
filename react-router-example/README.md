@@ -144,4 +144,108 @@ export default Mainheader;
 
 <br><br>
 
-## 6) Params를 사용하여 동적 경로 추가하기
+## 6) route 구성에 "Switch" 및 "exact" 사용하기
+
+-   아래 라우터에서 /product/p2를 호출하면 \<Products\> 컴포넌트와 \<ProductDetail\> 컴포넌트 둘 다 보이게 됨. 해당 URL은 /product로 시작하기도 하므로 두 라우트가 모두 활성화된다.
+
+```javascript
+import React from "react";
+import { Route } from "react-router-dom";
+import Mainheader from "./components/Mainheader";
+import ProductDetail from "./pages/ProductDetail";
+import Products from "./pages/Products";
+import Welcome from "./pages/Welcome";
+
+function App() {
+    return (
+        <div>
+            <Mainheader />
+            <main>
+                <Route path="/welcome">
+                    <Welcome />
+                </Route>
+                <Route path="/products">
+                    <Products />
+                </Route>
+                <Route path="/products/:productId">
+                    <ProductDetail />
+                </Route>
+            </main>
+        </div>
+    );
+}
+
+export default App;
+```
+
+<br>
+
+### (1) Switch
+
+-   이 경우에 react-router-dom의 \<Switch\> 컴포넌트를 사용하면 된다. 하지만 Switch는 가장 먼저 매칭되는 라우트가 보여지므로, /product/:productId URL로 접근해도 ProductDetail 컴포넌트는 더이상 표시되지 않는다. 리액트 라우터는 그저 라우트를 위에서 아래로 통과할 뿐이기 때문이다. 그리고 매칭되는 항목을 찾는다는 것은 전체 경로가 아니라 경로의 시작 부분과 일치할 때를 의미한다.
+-   그래도 Switch를 사용하면 하나의 라우트만 활성화시킬 수 있다.
+
+<br>
+
+### (2) exact
+
+-   한가지 해결책은 라우트 순서를 변경하는 것이다. /products/:productId 라우트를 /products 라우트보다 위에 두는 것이다.
+
+-   두번째 해결책은 exact prop을 추가하는 것이다. 이 prop은 리액트 라우터에 URL이 정확히 일치하는 경우에만 일치 여부를 알려준다.
+
+<br><br>
+
+## 7) Nasted Route 사용하기
+
+-   한 곳에서만 라우트를 정의하는 것이 아니라 원하는 곳 어디에서나 라우트를 정의할 수 있다.
+
+<br>
+
+```javascript
+// App.js
+function App() {
+    return (
+        <div>
+            <Mainheader />
+            <main>
+                <Switch>
+                    <Route path="/welcome">
+                        <Welcome />
+                    </Route>
+                    <Route path="/products" exact>
+                        <Products />
+                    </Route>
+                    <Route path="/products/:productId">
+                        <ProductDetail />
+                    </Route>
+                </Switch>
+            </main>
+        </div>
+    );
+}
+```
+
+<br>
+
+```javascript
+import { Route } from "react-router-dom/cjs/react-router-dom";
+
+const Welcome = () => {
+    return (
+        <section>
+            <h1>The Welocome Page</h1>
+            <Route path="/welcome/new-user">
+                <p>Welcome, new User!</p>
+            </Route>
+        </section>
+    );
+};
+
+export default Welcome;
+```
+
+-   /welcome/new-user로 접속하게 되면 아래 화면처럼 /welcome 라우트와 /welcome/new-user 라우트가 모두 활성화 되는 것을 확인할 수 있다
+
+<br>
+
+<img src="image.png" width="600px">

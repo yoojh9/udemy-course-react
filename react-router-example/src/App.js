@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import { Switch } from "react-router-dom/cjs/react-router-dom.min";
 import Mainheader from "./components/Mainheader";
 import ProductDetail from "./pages/ProductDetail";
 import Products from "./pages/Products";
@@ -10,15 +11,17 @@ function App() {
         <div>
             <Mainheader />
             <main>
-                <Route path="/welcome">
-                    <Welcome />
-                </Route>
-                <Route path="/products">
-                    <Products />
-                </Route>
-                <Route path="/product-detail/:productId">
-                    <ProductDetail />
-                </Route>
+                <Switch>
+                    <Route path="/welcome">
+                        <Welcome />
+                    </Route>
+                    <Route path="/products" exact>
+                        <Products />
+                    </Route>
+                    <Route path="/products/:productId">
+                        <ProductDetail />
+                    </Route>
+                </Switch>
             </main>
         </div>
     );
