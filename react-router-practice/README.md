@@ -130,3 +130,30 @@ console.log(isSortingAscending); // asc
 ```
 
 <br>
+
+## 10) Nested Route로 창의력 발휘하기
+
+-   아래 코드처럼 사용하면 /quotes/${params.quoteId} 경로에서만 \<Link\> 컴포넌트가 보여지고, \<Link\> 를 통해 /quotes/${params.quoteId}/comments로 이동하면 \<Link\> 컴포넌트는 나타나지 않는다.
+
+<br>
+
+```javascript
+return (
+    <>
+        <HighlightedQuote text={quote.text} author={quote.author} />
+        <Route path={`/quotes/${params.quoteId}`} exact>
+            <div className="centered">
+                <Link
+                    className="btn--flat"
+                    to={`/quotes/${params.quoteId}/comments`}
+                >
+                    Load Comments
+                </Link>
+            </div>
+        </Route>
+        <Route exact path={`/quotes/${params.quoteId}/comments`}>
+            <Comments />
+        </Route>
+    </>
+);
+```
