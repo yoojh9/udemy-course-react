@@ -42,3 +42,29 @@ export default QuotesDetail;
 -   https://github.com/yoojh9/udemy-course-react/commit/08a5c6cebcc6044be7e516d3e0155648a43c47e3
 
 ## 6) 404 페이지
+
+```javascript
+function App() {
+    return (
+        <Layout>
+            <Switch>
+                <Route path="/" exact>
+                    <Redirect to="/quotes" />
+                </Route>
+                <Route path="/quotes" exact>
+                    <AllQuotes />
+                </Route>
+                <Route path="/quotes/:quoteId">
+                    <QuotesDetail />
+                </Route>
+                <Route path="/new-quotes">
+                    <NewQuotes />
+                </Route>
+                <Route path="*">
+                    <NotFound />
+                </Route>
+            </Switch>
+        </Layout>
+    );
+}
+```
