@@ -99,6 +99,7 @@ export default NewQuotes;
 
 -   Prompt 컴포넌트는 react-router-dom에서 제공하는 컴포넌트로 다른 화면으로 이동할 때 자동으로 그걸 감시한다. 그리고 특정 조건이 충족되면 떠나기 전에 경고를 표시해준다.
 -   Prompt 컴포넌트는 두가지 prop이 필요하다. 사용자가 URL을 변경하는 경우 이 프롬프트가 표시되어야 하는지의 true 또는 false를 전달하는 when prop이 있어야 하고, message prop에는 보여주고 싶은 문자열을 넣는다.
+-   https://github.com/yoojh9/udemy-course-react/commit/ae01489fd8f7bfe16b45ff48f6df9fa8c0744b45
 
 <br>
 
@@ -112,3 +113,15 @@ export default NewQuotes;
 ```
 
 <br>
+
+## 9) 쿼리 매개변수 작업하기
+
+-   쿼리 매개 변수는 선택 사항이다. 쿼리 매개변수는 route 매칭을 바꾸지 않는다.
+-   쿼리 매개 변수를 추출하기 위해서는 useLocation() 훅을 사용한다.
+
+```javascript
+const location = useLocation();
+const queryParams = new URLSearchParams(location.search); // "?sort=asc"이런 쿼리 스트링을 객체로 변경해줌
+const isSortingAscending = queryParams.get("sort");
+console.log(isSortingAscending); // asc
+```
