@@ -256,7 +256,7 @@ export default Welcome;
 
 ```javascript
 <Route path="/" exact>
-    <Redirect to="/welcome/" />
+    <Redirect to="/welcome" />
 </Route>
 ```
 
