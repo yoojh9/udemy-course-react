@@ -134,6 +134,7 @@ console.log(isSortingAscending); // asc
 ## 10) Nested Route로 창의력 발휘하기
 
 -   아래 코드처럼 사용하면 /quotes/${params.quoteId} 경로에서만 \<Link\> 컴포넌트가 보여지고, \<Link\> 를 통해 /quotes/${params.quoteId}/comments로 이동하면 \<Link\> 컴포넌트는 나타나지 않는다.
+-   https://github.com/yoojh9/udemy-course-react/commit/a43d8cce2b06bbdd4d3ac535251fbac36c6a739a
 
 <br>
 
@@ -156,4 +157,57 @@ return (
         </Route>
     </>
 );
+```
+
+<br>
+
+## 11) 보다 유연한 라우팅 코드 작성하기
+
+-   useRouteMatch() 훅을 사용하면 현재 URL의 path를 가져올 수 있다.
+
+```javascript
+const QuotesDetail = () => {
+    const params = useParams();
+    const match = useRouteMatch();
+
+    console.log(match); //{isExact: true, params: {quoteId: 'q2'}, path: "/quotes/:quoteId", url: "/quotes/q2"}
+
+    const quote = DUMMY_QUOTES.find((quote) => quote.id === params.quoteId);
+
+    if (!quote) {
+        return <p>No quote found!</p>;
+    }
+
+    return (
+        <>
+            <HighlightedQuote text={quote.text} author={quote.author} />
+            <Route path={`${match.path}`} exact>
+                <div className="centered">
+                    <Link className="btn--flat" to={`${match.path}/comments`}>
+                        Load Comments
+                    </Link>
+                </div>
+            </Route>
+            <Route exact path={`${match.path}/comments`}>
+                <Comments />
+            </Route>
+        </>
+    );
+};
+```
+
+<br>
+
+-   history.push()에는 URL은 문자열이 길게 들어올 수도 있다. history.push()는 아래 예제처럼 사용할 수도 있다.
+
+<br>
+
+```javascript
+history.push({
+    pathname: location.pathname,
+    search: `?sort=${isSortingAscending ? "desc" : "asc"}`,
+});
+// history.push(
+//     `${location.pathname}?sort=${isSortingAscending ? "desc" : "asc"}`
+// );
 ```
