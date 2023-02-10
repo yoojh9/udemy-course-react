@@ -37,3 +37,5 @@ React, Redux. Next.js, TypeScript
 ## [16. Diving Deeper Into Redux](https://github.com/yoojh9/udemy-course-react/tree/main/dive-deeper-redux)
 
 ## [17. React Routing](https://github.com/yoojh9/udemy-course-react/tree/main/react-router-example)
+
+## [18. React Router Practice](https://github.com/yoojh9/udemy-course-react/tree/main/react-router-practice)
