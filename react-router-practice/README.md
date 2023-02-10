@@ -118,6 +118,9 @@ export default NewQuotes;
 
 -   쿼리 매개 변수는 선택 사항이다. 쿼리 매개변수는 route 매칭을 바꾸지 않는다.
 -   쿼리 매개 변수를 추출하기 위해서는 useLocation() 훅을 사용한다.
+-   https://github.com/yoojh9/udemy-course-react/commit/12b36f0d9f427068bcaedf9124d30d87d1e6a9a9
+
+<br>
 
 ```javascript
 const location = useLocation();
@@ -125,3 +128,5 @@ const queryParams = new URLSearchParams(location.search); // "?sort=asc"이런 �
 const isSortingAscending = queryParams.get("sort");
 console.log(isSortingAscending); // asc
 ```
+
+<br>
