@@ -195,7 +195,7 @@ export default App;
 
 <br><br>
 
-## 7) Nasted Route 사용하기
+## 7) Nested Route 사용하기
 
 -   한 곳에서만 라우트를 정의하는 것이 아니라 원하는 곳 어디에서나 라우트를 정의할 수 있다.
 
@@ -249,3 +249,15 @@ export default Welcome;
 <br>
 
 <img src="image.png" width="600px">
+
+<br><br>
+
+## 8) 사용자 리다이렉션
+
+```javascript
+<Route path="/" exact>
+    <Redirect to="/welcome/" />
+</Route>
+```
+
+<br><br>
