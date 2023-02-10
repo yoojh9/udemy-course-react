@@ -37,4 +37,6 @@ export default QuotesDetail;
 
 -   https://github.com/yoojh9/udemy-course-react/commit/93ed80ab7e4d235b31c614f5fa319fe36f0b803f
 
-<br>
+## 5) Quote Detail
+
+-
