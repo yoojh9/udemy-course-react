@@ -211,3 +211,11 @@ history.push({
 //     `${location.pathname}?sort=${isSortingAscending ? "desc" : "asc"}`
 // );
 ```
+
+<br>
+
+-   https://github.com/yoojh9/udemy-course-react/commit/0822f2a8c80590801a82e6dd4674e2c70879a968
+
+<br>
+
+## 12)
