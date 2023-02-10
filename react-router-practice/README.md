@@ -183,7 +183,7 @@ const QuotesDetail = () => {
             <HighlightedQuote text={quote.text} author={quote.author} />
             <Route path={`${match.path}`} exact>
                 <div className="centered">
-                    <Link className="btn--flat" to={`${match.path}/comments`}>
+                    <Link className="btn--flat" to={`${match.url}/comments`}>
                         Load Comments
                     </Link>
                 </div>
@@ -218,4 +218,10 @@ history.push({
 
 <br>
 
-## 12)
+## 12) Http를 통해 Form 데이터 보내기 및 받기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/f92c43b5b4c7bb1238e39f178958edd051178a27
+
+<br>
+
+## 13) Comment 기능 추가하기

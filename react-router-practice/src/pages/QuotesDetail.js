@@ -35,27 +35,24 @@ const QuotesDetail = () => {
         return <p className="centered">{error}</p>;
     }
 
-    if (!loadedQuote.text) {
-        return <p>No quote found!</p>;
-    }
-
-    const quote = loadedQuote.find((quote) => quote.id === params.quoteId);
-
-    if (!quote) {
+    if (!loadedQuote || !loadedQuote.text) {
         return <p>No quote found!</p>;
     }
 
     return (
         <>
-            <HighlightedQuote text={quote.text} author={quote.author} />
+            <HighlightedQuote
+                text={loadedQuote.text}
+                author={loadedQuote.author}
+            />
             <Route path={`${match.path}`} exact>
                 <div className="centered">
-                    <Link className="btn--flat" to={`${match.path}/comments`}>
+                    <Link className="btn--flat" to={`${match.url}/comments`}>
                         Load Comments
                     </Link>
                 </div>
             </Route>
-            <Route exact path={`${match.path}/comments`}>
+            <Route path={`${match.path}/comments`}>
                 <Comments />
             </Route>
         </>
