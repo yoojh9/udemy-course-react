@@ -92,3 +92,23 @@ const NewQuotes = () => {
 
 export default NewQuotes;
 ```
+
+<br>
+
+## 8) 'Prompt' 컴포넌트를 사용하여 원치 않은 경로 전환 방지하기
+
+-   Prompt 컴포넌트는 react-router-dom에서 제공하는 컴포넌트로 다른 화면으로 이동할 때 자동으로 그걸 감시한다. 그리고 특정 조건이 충족되면 떠나기 전에 경고를 표시해준다.
+-   Prompt 컴포넌트는 두가지 prop이 필요하다. 사용자가 URL을 변경하는 경우 이 프롬프트가 표시되어야 하는지의 true 또는 false를 전달하는 when prop이 있어야 하고, message prop에는 보여주고 싶은 문자열을 넣는다.
+
+<br>
+
+```javascript
+<Prompt
+    when={isEntering}
+    message={(location) =>
+        "Are you sure you want to leave? All your entered data will be lost!"
+    }
+/>
+```
+
+<br>
