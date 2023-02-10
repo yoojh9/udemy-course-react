@@ -10,6 +10,8 @@
 
 ## 3) Nested Route 사용하기
 
+-   https://github.com/yoojh9/udemy-course-react/commit/474ec82344afb29be2185d2a142d02ac12a70217
+
 ```javascript
 import { Route, useParams } from "react-router-dom";
 import Comments from "../components/comments/Comments";
@@ -28,3 +30,7 @@ const QuotesDetail = () => {
 
 export default QuotesDetail;
 ```
+
+<br>
+
+## 4) 레이아웃 Wrapper 컴포넌트 추가하기
