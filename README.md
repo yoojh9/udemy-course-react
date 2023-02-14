@@ -40,4 +40,4 @@ React, Redux. Next.js, TypeScript
 
 ## [18. React Router Practice](https://github.com/yoojh9/udemy-course-react/tree/main/react-router-practice)
 
-## [19. React Router v6](http://github.com/yoojh9/udemy-course/react/tree/main/react-router-v6)
+## [19. React Router v6](http://github.com/yoojh9/udemy-course-react/tree/main/react-router-v6)
