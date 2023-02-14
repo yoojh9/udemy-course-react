@@ -42,4 +42,4 @@ React, Redux. Next.js, TypeScript
 
 ## [19. React Router v6](http://github.com/yoojh9/udemy-course-react/tree/main/react-router-v6)
 
-## [20. Better Data Fetching with React Router v6.4](https://github.com/yoojh9/udemy-course/react/tree/main/better-fetching-router)
+## [20. Better Data Fetching with React Router v6.4](https://github.com/yoojh9/udemy-course-react/tree/main/better-fetching-router)
