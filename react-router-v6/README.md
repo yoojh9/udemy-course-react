@@ -206,3 +206,66 @@ export default Welcome;
 ```
 
 <br><br>
+
+### (2) Nested Route 다르게 사용하기
+
+- 메인 라우트에서 중첩 라우트까지 같이 적용할 수 있다.
+- \<Outlet\> 컴포넌트를 사용하여 중첩 라우트 콘텐츠가 삽입될 위치를 지정할 수 있다.
+
+<br>
+
+```javascript
+function App() {
+  return (
+    <div>
+      <MainHeader />
+      <main>
+        <Routes>
+          <Route path="/" element={<Navigate replace to="/welcome"/>}/>
+          <Route path='/welcome/*' element={<Welcome/>}>
+            <Route path="new-user" element={<p>Welcome, new user!</p>}/>          
+          </Route>
+          <Route path='/products' element={<Products/>}/>
+          <Route path='/products/:productId' element={<ProductDetail/>}/>
+        </Routes>
+      </main>
+    </div>
+  );
+}
+```
+
+<br>
+
+```javascript
+import { Link, Outlet } from "react-router-dom";
+
+const Welcome = () => {
+  return (
+    <section>
+      <h1>The Welcome Page</h1>
+      <Link to="new-user">New User</Link>
+      <Outlet/>
+    </section>
+  )
+};
+```
+
+<br><br>
+
+### (3) useHistory() -> useNavigate()
+
+```javascript
+const navigate = useNavigate();
+navigate('/welcome');   // push
+
+naviate('/welcome', {replace: true}) // redirect
+
+navigate(-1); // history.goBack();
+navigate(-2); // prev prev page
+navigate(1); // next page
+```
+
+<br><br>
+
+### (4) Prompt
+- v6에는 당장 포함되어 있지 않아서 자체적으로 구현해야 함
