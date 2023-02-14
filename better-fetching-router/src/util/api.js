@@ -17,11 +17,11 @@ export async function getPost(id) {
 }
 
 export async function savePost(post) {
-  if (post.title.trim().length < 5 || post.body.trim().length < 10) {
+  if (post.title.trim().length < 5 || post.body.trim().length < 30) {
     throw { message: 'Invalid input data provided.', status: 422 };
   }
 
-  const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
+  const response = await fetch('https://jsonplaceholder.typicode.com/postsddd', {
     method: 'POST',
     body: JSON.stringify(post),
     headers: {

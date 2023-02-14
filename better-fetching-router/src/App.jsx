@@ -2,7 +2,7 @@ import { BrowserRouter, createBrowserRouter, createRoutesFromElements, Route, Ro
 
 import BlogLayout from './pages/BlogLayout';
 import BlogPostsPage, { loader as blogPostsLoader} from './pages/BlogPosts';
-import NewPostPage from './pages/NewPost';
+import NewPostPage, {action as newPostAction} from './pages/NewPost';
 import PostDetailPage, {loader as blogPostLoader} from './pages/PostDetail';
 import RootLayout from './components/RootLayout';
 import WelcomePage from './pages/Welcome';
@@ -15,7 +15,7 @@ const router = createBrowserRouter(createRoutesFromElements(
       <Route index element={<BlogPostsPage />} loader={blogPostsLoader} />
       <Route path=":id" element={<PostDetailPage />} loader={blogPostLoader} errorElement={<p>An error occured!</p>}/>
     </Route>
-    <Route path="/blog/new" element={<NewPostPage />} />
+    <Route path="/blog/new" element={<NewPostPage />} action={newPostAction}/>
   </Route>
 
 ))
