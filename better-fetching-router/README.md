@@ -8,4 +8,11 @@
 $ npm install react-router-dom@6.4
 ```
 
-### 1) getPosts() fetch 코드 변경
+### 1) getPosts() fetch 코드 간소화
+
+- https://github.com/yoojh9/udemy-course-react/commit/d493dda90debc34af0d62b5265b2dd79d68ec8ec
+
+
+<br>
+
+### 2) getPost() fetch 코드 간소화
