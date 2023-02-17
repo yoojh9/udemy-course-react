@@ -36,3 +36,9 @@
 <br><br>
 
 ## 6) Context로 인증 State 관리하기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/4455918f1e4f64b007d64ec3082a1f31c8e27a92
+
+<br><br>
+
+## 7) 토큰으로 비밀번호 변경하기
