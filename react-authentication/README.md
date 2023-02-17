@@ -20,3 +20,13 @@
 ## 3) 설정
 
 -   이 프로젝트에서는 Firebase Auth REST API를 사용한다.(https://firebase.google.com/docs/reference/rest/auth?hl=ko)
+
+<br><br>
+
+## 4) 사용자 가입 추가하기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/faeb1c8bf4f6ba8357a3b32ea5d14ef4c66cd1fb
+
+<br><br>
+
+## 5) 사용자에게 피드백 표시하기
