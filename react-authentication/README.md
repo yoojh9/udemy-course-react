@@ -42,3 +42,5 @@
 <br><br>
 
 ## 7) 토큰으로 비밀번호 변경하기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/fa5590ffc0e4e620c4fd10b0eaf87a34b39c2dd2
