@@ -45,3 +45,5 @@ React, Redux. Next.js, TypeScript
 ## [20. Better Data Fetching with React Router v6.4](https://github.com/yoojh9/udemy-course-react/tree/main/better-fetching-router)
 
 ## [21. Authentication](https://github.com/yoojh9/udemy-course-react/tree/main/react-authentication)
+
+## [22. Deploying React Apps](https://github.com/yoojh9/udemy-course-react/tree/main/deploy-react-app)
