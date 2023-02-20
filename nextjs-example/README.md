@@ -12,5 +12,5 @@
 
 <br>
 
-<img src="image.png" width="600px">
+<img src="image.png" width="650px">
 
