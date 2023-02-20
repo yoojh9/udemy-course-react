@@ -78,3 +78,8 @@
 <br><br>
 
 ## 9) 사용자 인증 State 유지하기
+-   https://github.com/yoojh9/udemy-course-react/commit/835c10c954e9d276505bfa371f2943acf8754781
+
+<br><br>
+
+## 10) 자동 로그아웃 추가하기
