@@ -11,7 +11,7 @@ export const AuthContextProvider = (props) => {
     const [token, setToken] = useState(null);
 
     const userIsLoggedIn = !!token;
-    console.log(userIsLoggedIn);
+
     const loginHandler = (token) => {
         setToken(token);
     };
