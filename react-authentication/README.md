@@ -83,3 +83,4 @@
 <br><br>
 
 ## 10) 자동 로그아웃 추가하기
+-   https://github.com/yoojh9/udemy-course-react/commit/df0af4f2020d15440c1789504de772591802cee7
