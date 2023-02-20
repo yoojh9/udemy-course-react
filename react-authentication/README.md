@@ -44,3 +44,34 @@
 ## 7) 토큰으로 비밀번호 변경하기
 
 -   https://github.com/yoojh9/udemy-course-react/commit/fa5590ffc0e4e620c4fd10b0eaf87a34b39c2dd2
+
+<br><br>
+
+## 8) 프론트엔드 페이지 보호하기
+-   Navigation Guard 추가
+
+<br>
+
+```javascript
+    <Layout>
+      <Switch>
+        <Route path='/' exact>
+          <HomePage />
+        </Route>
+        {
+        !authCtx.isLoggedIn && <Route path='/auth'>
+          <AuthPage />
+        </Route>
+        }
+        {
+        authCtx.isLoggedIn && <Route path='/profile'>
+          <UserProfile />
+        </Route>
+        }
+        <Route path="*">
+          <Redirect to="/"/>
+        </Route>
+      </Switch>
+    </Layout>
+```
+
