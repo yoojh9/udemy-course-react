@@ -68,3 +68,46 @@ export default App;
 <br>
 
 -   사용자가 이 페이지를 방문할 것이라고 생각된다면 lazyLoading은 불필요하다. 물론 선택 사항이겠지만, 페이지가 많고 각 페이지에 많은 컴포넌트와 많은 복잡한 로직이 붙어있는 애플리케이션에서는 레이지 로딩이 진가를 발휘한다. 웹사이트의 초기 로딩을 훨씬 빠르게 만들어준다.
+
+<br><br>
+
+## 3) 배포 시작하기
+-   A React SPA is a "Static Website". 따라서 HTML과 CSS, 자바스크립트 코드로만 구성된다.
+-   리액트 싱글사이드 앱을 배포하고 싶으면 정적 사이드 호스트가 필요하다. hosting a static website가 필요함
+-   이 프로젝트에서는 Firebase의 Hosting 서비스를 사용한다.
+
+<br>
+
+```
+$ npm install -g firebase-tools 
+$ firebase login
+$ firebase init
+```
+
+<br>
+
+-   CLI로 작업을 진행하다 보면, 'What do you want to use as your public directory ? (public)' 이라고 물어보게 되는데 우리가 실제로 배포해야 되는 파일은 build 폴더에 있으므로 디폴트인 public 폴더로 하지 않고, build를 입력한다.
+-   Configuration as single-page app (rewirte all urls to /index.html)?(y/N) y
+
+<br><br>
+
+## 4) Configure Server
+-   서버에 도달한 request는 path를 포함하고 있고, 전체 URL을 포함한다. 
+-   그리고 디폴트로 서버는 다른 파일을 찾고, 다른 URL의 응답으로 리턴될 것이다. 그런 식으로 서버가 작동한다.
+-   하지만 싱글 페이지 앱을 호스트 할 때는 path를 무시하고 싶다. 서버에 있는 도메인 뒤의 path는 사용자가 어떤 경로를 타켓하는지 상관없이 항상 같은 HTML 파일, 같은 자바스크립트 파일을 응답한다. 
+-   그럼 리액트 앱과 앱의 일부인 리액트 라우터는 다른 URL을 찾을 것이다. 그리고 알맞은 콘텐츠를 스크린에 렌더한다.
+-   따라서 서버는 아래 그림의 /some-route 경로를 무시해야 한다. 서버는 디폴트로 request path를 무시하지 않으므로 특정 호스트 제공 업체의 문서를 살펴야 한다.
+-   파이어베이스의 'Configuration as single-page app (rewirte all urls to /index.html)? (y/N)' 이 질문이 그런 역할이다. 모든 URL이 인덱스 HTML로 다시 쓰여야 한다면 어떤 종류의 URL이 보내졌는지와는 관계 없이 우리는 항상 같은 HTML 파일을 리턴해야 한다. 따라서 이 질문에 y를 입력하면 파이어베이스가 알아서 설정해준다.
+-   URL과 URL에 있는 path가 무시되도록 서버에서 설정하면 항상 싱글 페이지 앱 코드를 리턴할 것이다.
+<br>
+
+<img src="./image.png" width="600px">
+
+<br><br>
+
+
+## 5) 배포
+
+```
+$ firebase deploy
+```
