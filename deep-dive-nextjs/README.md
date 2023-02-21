@@ -162,6 +162,10 @@ export default HomePage;
 
 <br>
 
+- revalidate는 이 페이지에 요청이 들어오면 적어도 10초마다 서버에서 페이지를 다시 생성하라는 의미이다. 새로 렌더링 된 페이지는 생성했던 오래된 페이지를 대체한다. revalidate를 사용하면 이 페이지는 배포 후에도 서버에서 때때로 다시 사전 생성할 것이다. 그러니 일부 데이터가 변경되었다고 해서 매번 다시 빌드하고 배포할 필요는 없다.
+
+<br>
+
 ```javascript
 export const getStaticProps = async () => {
   // fetch data from an API
@@ -174,8 +178,7 @@ export const getStaticProps = async () => {
 }
 ```
 
-<br>
+<br><br>
 
-- revalidate는 이 페이지에 요청이 들어오면 적어도 10초마다 서버에서 페이지를 다시 생성하라는 의미이다. 새로 렌더링 된 페이지는 생성했던 오래된 페이지를 대체한다.
 
 ### (2) Server-side Rendering
