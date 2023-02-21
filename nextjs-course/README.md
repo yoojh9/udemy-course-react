@@ -69,4 +69,4 @@ $ npx create-next-app
 
 ## 5) 중첩 경로 및 페이지 추가하기 (중첩 경로)
 -   \/news: pages/news/index.js 이렇게 구성해도 된다. pages 폴더 안에 만든 폴더도 경로 segment에 들어간다.
-- 
+-   \/news/something-important: /pages/news/something-important.js
