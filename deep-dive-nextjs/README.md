@@ -30,4 +30,22 @@ export default MyApp
 
 <br><br>
 
-## 4) 
+## 4) 프로그래밍 방식 navigate 사용하기
+-   next/link \<Link\> 컴포넌트와 동일한 역할을 하도록 프로그래밍 방식으로 navigate를 추가할 수 있다.
+-   next/router의 useRouter()를 사용하여 push() 메소드를 호출한다.
+
+<br>
+
+```javascript
+import { useRouter } from 'next/router'
+
+function MeetupItem(props) {
+  const router = useRouter();
+
+  const showDetailHandler = () => {
+    router.push(`/${props.id}`) // Link 컴포넌트 대신
+  }
+
+  return <></>;
+}
+```
