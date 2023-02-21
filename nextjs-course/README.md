@@ -47,9 +47,9 @@
 
 ## 3) 새로운 Next.js 프로젝트 및 앱 만들기
 
-- Node.js(+npm) 설치
+-   Node.js(+npm) 설치
 
-- Setup
+-   Setup
 
 <br>
 
@@ -61,4 +61,12 @@ $ npx create-next-app
 
 ## 4) 첫 페이지 추가하기
 
-- \/로 요청 시 pages/index.js 파일을 불러오고, \/news로 요청 시 pages/news.js 파일을 불러온다. 즉 index.js 말고 다른 파일 이름은 경로 이름으로 사용된다.
+-   \/로 요청 시 pages/index.js 파일을 불러오고, \/news로 요청 시 pages/news.js 파일을 불러온다. 즉 index.js 말고 다른 파일 이름은 경로 이름으로 사용된다.
+-   \/ : pages/index.js
+-   \/news: pages/news.js
+
+<br><br>
+
+## 5) 중첩 경로 및 페이지 추가하기 (중첩 경로)
+-   \/news: pages/news/index.js 이렇게 구성해도 된다. pages 폴더 안에 만든 폴더도 경로 segment에 들어간다.
+- 
