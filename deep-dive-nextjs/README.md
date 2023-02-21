@@ -102,7 +102,7 @@ export default HomePage;
 
 <br><br>
 
-## 6) 정적 페이지에 대한 데이터 가져오기
+## 6) Pre Rendering 방식
 
 ### (1) 정적 생성(Static Generation)
 -   정적 생성에서 페이지 컴포넌트가 사전 렌더링 되는 시점은 애플리케이션을 빌드할 때, 즉 프로덕션 용으로 빌드하는 시점이다. 
@@ -182,3 +182,30 @@ export const getStaticProps = async () => {
 
 
 ### (2) Server-side Rendering
+-   getStaticProps의 revalidate를 이용하면 데이터가 규칙적으로 업데이트 되게 할 수 있다. 하지만 주기적인 업데이트로도 부족할 수가 있다. 요청이 들어올 때마다 페이지를 다시 만들어야 할 때가 있다. 따라서 서버가 배포된 이후에 요청이 있을 때만 페이지를 동적으로 pre-generate 해야 한다. 
+-   이때는 getStaticProps가 아닌 getServerSideProps라는 함수를 이용한다. 이것 역시 이미 지정된 이름이고 NextJS가 해당 함수를 실행하게 된다.
+-   getServerSideProps와 getStaticProps의 차이점은 getServerSideProps는 빌드 과정에서 실행되지 않고 배포 이후에 서버에서 실행된다. getServerSideProps 함수도 getStaticProps와 동일하게 객체를 리턴한다.
+-   getServerSideProps는 서버에 요청이 들어올 때마다 실행되므로 revalidate를 지정하는 것은 의미가 없다.
+
+<br>
+
+```javascript
+// Server-side Rendering
+export const getServerSideProps = async (context) => {
+  const req = context.req;
+  const res = context.res;
+
+  // fetch data from an API
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS
+    }
+  }
+}
+```
+
+<br><br>
+
+### (3) getStaticProps vs getServerSideProps는
+-   getServerSideProps는 서버에 들어오는 모든 요청에 실행되므로 항상 바뀌는 데이터가 아니거나 그리고 인증과 같이 context.req 객체에 직접 접근할 필요가 없다면 getStaticProps()가 좀 더 낫다. 여기서는 HTML 파일을 pre-generate하므로 그 파일은 CDN에 저장되고 제공된다. 그리고 요청이 들어올 때마다 데이터를 만들고 패치하는 것보다 빠르다. 따라서 getStaticProps()는 항상 다시 만드는 대신에 캐시하고 다시 사용하므로 더 빠르다.
+-   만약 request 객체에 접근해야 한다면 getServerSideProps를 사용한다. 그리고 매초 여러 번 바뀌는 데이터를 가지고 있다면 revalidate도 도움이 안되므로 getServerSideProps가 좋은 선택이다.
