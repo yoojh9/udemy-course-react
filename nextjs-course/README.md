@@ -56,3 +56,9 @@
 ```
 $ npx create-next-app
 ```
+
+<br><br>
+
+## 4) 첫 페이지 추가하기
+
+- \/로 요청 시 pages/index.js 파일을 불러오고, \/news로 요청 시 pages/news.js 파일을 불러온다. 즉 index.js 말고 다른 파일 이름은 경로 이름으로 사용된다.
