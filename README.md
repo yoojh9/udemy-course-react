@@ -48,4 +48,4 @@ React, Redux. Next.js, TypeScript
 
 ## [22. Deploying React Apps](https://github.com/yoojh9/udemy-course-react/tree/main/deploy-react-app)
 
-## [23. Next.js](https://github.com/yoojh9/udemy-course-react/tree/main/nextjs-example)
+## [23. Next.js](https://github.com/yoojh9/udemy-course-react/tree/main/nextjs-course)
