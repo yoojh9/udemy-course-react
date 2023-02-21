@@ -158,7 +158,24 @@ export default HomePage;
 
 -   이제 페이지 소스를 보면 비어있던 리스트는 보이지 않고 이미지, 제목 등이 들어있는 항목들이 리스트에 있는 것을 확인할 수 있다. 당연히 검색엔진에도 좋다. 
 -   이제 클라이언트 측 컴포넌트의 두 번째 렌더링 사이클에서 데이터를 받는 것이 아니라 초기에 이 페이지를 사전 렌더링하기 전에 빌드 프로세스에서 받게 된다.
+-   https://github.com/yoojh9/udemy-course-react/commit/870657770ac5ca761b09ec88bc03cda55725cac9
 
 <br>
+
+```javascript
+export const getStaticProps = async () => {
+  // fetch data from an API
+  return {
+    props: {
+      meetups: DUMMY_MEETUPS
+    },
+    revalidate: 10
+  }
+}
+```
+
+<br>
+
+- revalidate는 이 페이지에 요청이 들어오면 적어도 10초마다 서버에서 페이지를 다시 생성하라는 의미이다. 새로 렌더링 된 페이지는 생성했던 오래된 페이지를 대체한다.
 
 ### (2) Server-side Rendering
