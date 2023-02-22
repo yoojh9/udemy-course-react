@@ -27,3 +27,5 @@ $ npx tsc with-typescript.ts
 ```
 
 <br><br>
+
+## 3) 기본 자료형(Type) 알아보기
