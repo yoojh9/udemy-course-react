@@ -1,13 +1,19 @@
+import { MongoClient } from "mongodb";
+
 //  /api/new-meetup
 // POST /api/new-meetup
 
-const handler = (req, res) => {
+const handler = async (req, res) => {
   if(req.method === "POST") {
     const data = req.body;
+    const client = await MongoClient.connect(process.env.REACT_APP_MONGODB_URL)
+    const db = client.db();
+    const meetupsCollection = db.collection('meetups');
+    const result = await meetupsCollection.insertOne(data);
+    console.log(result);
+    client.close();
 
-    const { title, image, address, description } = data;
-
-    
+    res.status(201).json({message: 'Meetup inserted!'});
   }
 }
 

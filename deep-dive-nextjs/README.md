@@ -280,3 +280,18 @@ export default MeetupDetails;
 <br><br>
 
 ## 8) API 라우트 추가
+-   https://github.com/yoojh9/udemy-course-react/commit/320c5604a33974f155a11ae2af55417b27094f67
+
+<br><br>
+
+## 9) 몽고 DB로 작업하기
+-   MongoDB Atlas Cloud를 사용한다.
+-   MongoDB Driver를 설치하여 MongoDB에 쉽게 queries를 보낼 수 있게 해준다.
+
+<br>
+
+```javascript
+$ npm install mongodb
+```
+
+<br>
