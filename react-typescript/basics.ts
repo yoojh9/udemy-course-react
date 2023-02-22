@@ -55,3 +55,13 @@ let course2: string | number | boolean = 'React - The Complete Guide';
 course2 = 12341;
 
 
+/**
+ * Functions & types
+ */
+function add(a: number, b: number): number {
+  return a + b;
+}
+
+function printOutput(value: any): void {
+  console.log(value);
+}
