@@ -52,4 +52,4 @@ React, Redux. Next.js, TypeScript
 
 ## [24. Deep Dive Next.js](https://github.com/yoojh9/udemy-course-react/tree/main/deep-dive-nextjsi)
 
-## [25. Animating React Apps](https://github.com/yoojh9/udemy-course-react/tree/main/animate-react-apps)
+## [28. React + TypeScript](https://github.com/yoojh9/udemy-course-react/tree/main/react-typescript)
