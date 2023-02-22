@@ -276,3 +276,7 @@ export const getStaticProps = async (context) => {
 
 export default MeetupDetails;
 ```
+
+<br><br>
+
+## 8) API 라우트 추가
