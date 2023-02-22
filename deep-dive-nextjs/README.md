@@ -206,6 +206,73 @@ export const getServerSideProps = async (context) => {
 
 <br><br>
 
-### (3) getStaticProps vs getServerSideProps는
+### (3) getStaticProps vs getServerSideProps
 -   getServerSideProps는 서버에 들어오는 모든 요청에 실행되므로 항상 바뀌는 데이터가 아니거나 그리고 인증과 같이 context.req 객체에 직접 접근할 필요가 없다면 getStaticProps()가 좀 더 낫다. 여기서는 HTML 파일을 pre-generate하므로 그 파일은 CDN에 저장되고 제공된다. 그리고 요청이 들어올 때마다 데이터를 만들고 패치하는 것보다 빠르다. 따라서 getStaticProps()는 항상 다시 만드는 대신에 캐시하고 다시 사용하므로 더 빠르다.
 -   만약 request 객체에 접근해야 한다면 getServerSideProps를 사용한다. 그리고 매초 여러 번 바뀌는 데이터를 가지고 있다면 revalidate도 도움이 안되므로 getServerSideProps가 좋은 선택이다.
+-   Nextjs에선 다음 페이지들을 정적생성 할 것을 권고하고 있다. (마케팅 페이지, 블로그 게시물, 제품 목록, 도움말, 문서)
+-   SSR 권고 페이지 (항상 최신 상태가 필요한 페이지, 관리자 페이지, 분석 차트)
+ 
+<br><br>
+
+## 7) getStaticProps를 사용하여 URL param 가져오기
+-   만약 /[meetupId]와 같은 동적 페이지라면 getStaticPaths라는 새로운 함수를 사용한다.
+-   동적 페이지이기 때문에 NextJS는 어떤 ID 값이 pre-generate 페이지가 되어야 되는지 알아야 한다. 
+-   getStaticPaths가 없으면 모든 ID 값마다 페이지가 pre-generate 되어야 한다. 
+
+<br>
+
+```javascript
+// pages/[meetupId]/index.js
+
+import MeetupDetail from "../../components/meetups/MeetupDetail";
+
+const MeetupDetails = () => {
+
+  return(
+    <MeetupDetail 
+      image="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1600px-Stadtbild_M%C3%BCnchen.jpg?20130611211153"
+      title="A First Meetup"
+      address="Some Street 5, Some city"
+      description="This is a first meetup"/>
+  )
+}
+
+export const getStaticPaths = async () => {
+  return {
+    fallback: false,
+    paths: [
+      { 
+        params: {
+          meetupId: 'm1'
+        }
+      },
+      { 
+        params: {
+          meetupId: 'm2'
+        }
+      }
+    ]
+  }
+}
+
+// Meetup 데이터는 자주 바뀌지 않으므로 getStaticProps를 사용한다
+export const getStaticProps = async (context) => {
+  // fetch data for a singlie meetup
+  const meetupId = context.params.meetupId;
+  console.log(meetupId);
+
+  return {
+    props: {
+      meetupData: {
+        id: meetupId,
+        image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/1600px-Stadtbild_M%C3%BCnchen.jpg?20130611211153",
+        title: "A First Meetup",
+        address: "Some Street 5, Some city",
+        description: "This is a first meetup"
+      }
+    }
+  }
+}
+
+export default MeetupDetails;
+```

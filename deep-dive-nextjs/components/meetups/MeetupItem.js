@@ -6,7 +6,7 @@ function MeetupItem(props) {
   const router = useRouter();
 
   const showDetailHandler = () => {
-    router.push(`/${props.id}`) // Link 컴포넌트 대신
+    router.push('/'+props.id) // Link 컴포넌트 대신
   }
 
   return (
