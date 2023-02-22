@@ -13,3 +13,24 @@ userName = 'Jeonghyun';
 let isInstructor: boolean;
 isInstructor = true;
 
+
+// More Complex Type
+let hobbies: string[];
+hobbies = ['Sports', 'Cooking'];
+
+let person: {
+  name: string, 
+  age: number
+};
+person = {
+  name: 'Jeonghyun',
+  age: 32
+}
+// person = {
+//   isEmployee: true,   // error
+// }
+
+let people: {
+  name: string, 
+  age: number
+}[];
