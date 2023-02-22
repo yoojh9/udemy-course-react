@@ -50,4 +50,6 @@ React, Redux. Next.js, TypeScript
 
 ## [23. Introduction Next.js](https://github.com/yoojh9/udemy-course-react/tree/main/nextjs-course)
 
-## [24. Deep Dive Next.js](https://github.com/yoojh9/udemy-course-react/tree/main/deep-dive-nextjs)
+## [24. Deep Dive Next.js](https://github.com/yoojh9/udemy-course-react/tree/main/deep-dive-nextjsi)
+
+## [25. Animating React Apps](https://github.com/yoojh9/udemy-course-react/tree/main/animate-react-apps)
