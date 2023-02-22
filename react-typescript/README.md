@@ -101,3 +101,24 @@ let course = 'React - The Complete Guide';
 let course2: string | number | boolean = 'React - The Complete Guide';
 course2 = 12341;
 ```
+
+<br><br>
+
+## 7) Type Aliases의 이해
+
+<br>
+
+```typescript
+type Person = {
+  name: string, 
+  age: number
+};
+
+let person: Person;
+person = {
+  name: 'Jeonghyun',
+  age: 32
+}
+
+let people: Person[];
+```

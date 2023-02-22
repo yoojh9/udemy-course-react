@@ -22,6 +22,7 @@ isInstructor = true;
 let hobbies: string[];
 hobbies = ['Sports', 'Cooking'];
 
+
 let person: {
   name: string, 
   age: number
@@ -52,3 +53,5 @@ let course = 'React - The Complete Guide';
  */
 let course2: string | number | boolean = 'React - The Complete Guide';
 course2 = 12341;
+
+
