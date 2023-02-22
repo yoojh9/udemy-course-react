@@ -52,7 +52,7 @@ isInstructor = true;
 
 ## 4) 배열 및 객체 타입 작업하기
 
-```javascript
+```typescript
 // More Complex Type
 let hobbies: string[];
 hobbies = ['Sports', 'Cooking'];
@@ -74,4 +74,30 @@ let people: {
   age: number
 }[];
 
+```
+
+<br><br>
+
+## 5) 타입 추론 (Type Inference)
+
+```typescript
+/**
+ * Type Inference
+ */
+let course = 'React - The Complete Guide';
+// course = 12341;   // error
+```
+
+
+<br><br>
+
+## 6) Union 타입 사용하기
+-   지금까지는 한 개의 변수에 한 가지 자료형만 저장할 수 있었다. 
+-   하지만 다양한 타입을 여러 개 저장하는 경우도 있다.
+
+<br>
+
+```typescript
+let course2: string | number | boolean = 'React - The Complete Guide';
+course2 = 12341;
 ```

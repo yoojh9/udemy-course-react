@@ -2,7 +2,9 @@
 // More complex types: arrays, objects
 // Function types, parameters
 
-// Primitives
+/** 
+ * Primitives
+ */ 
 let age : number = 1;
 age = 12;
 // age = '12';  // error
@@ -14,7 +16,9 @@ let isInstructor: boolean;
 isInstructor = true;
 
 
-// More Complex Type
+/**
+ * More Complex Type
+ */
 let hobbies: string[];
 hobbies = ['Sports', 'Cooking'];
 
@@ -34,3 +38,17 @@ let people: {
   name: string, 
   age: number
 }[];
+
+
+/**
+ * Type Inference
+ */
+let course = 'React - The Complete Guide';
+// course = 12341;   // error
+
+
+/**
+ * Union Type
+ */
+let course2: string | number | boolean = 'React - The Complete Guide';
+course2 = 12341;
