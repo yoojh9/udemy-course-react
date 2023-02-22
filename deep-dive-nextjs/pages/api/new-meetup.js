@@ -6,7 +6,8 @@ import { MongoClient } from "mongodb";
 const handler = async (req, res) => {
   if(req.method === "POST") {
     const data = req.body;
-    const client = await MongoClient.connect(process.env.REACT_APP_MONGODB_URL)
+    const client = new MongoClient(process.env.MONGODB_URL);
+    await client.connect();
     const db = client.db();
     const meetupsCollection = db.collection('meetups');
     const result = await meetupsCollection.insertOne(data);
