@@ -147,3 +147,40 @@ export default NewTodo;
 <br><br>
 
 ## 6) Context API 및 TypeScript
+
+-   https://github.com/yoojh9/udemy-course-react/commit/bfe384013ed9ecd12ecf1171768639c497552610
+
+<br><br>
+
+## 7) tsconfig 탐색
+
+-   target: 작성할 코드를 어떤 자바스크립트 버전으로 변환할지 결정
+-   lib: 타입스크립트 라이브러리. 예를 들면 NewTodo.tsx의 ref 타입인 HTMLInputElement을 사용할 수 있는건 이 dom 라이브러리를 추가했기 때문이다.
+-   allowJs: .js 파일 포함 여부를 결정
+-   strict: strict을 true로 두면 이 프로젝트에서 가장 엄격한 설정이 적용된다. 예를 들어, 이 모드에서는 묵시적인 any 타입을 사용할 수 없다.
+-   jsx: 이 옵션으로 JSX 코드를 지원할건지 결과물로 어떤 코드를 생성할 건지 결정한다.
+    <br>
+
+```json
+// tsconfig.json
+{
+    "compilerOptions": {
+        "target": "es5",
+        "lib": ["dom", "dom.iterable", "esnext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "module": "esnext",
+        "moduleResolution": "node",
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx"
+    },
+    "include": ["src"]
+}
+```
