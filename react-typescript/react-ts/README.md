@@ -137,3 +137,13 @@ export default NewTodo;
 -   만약 이 시점에 값이 null이 아니라는 것을 확신한다면, 즉 레퍼런스와 요소가 연결되었다는 걸 알고 있다면 ? 대신 !를 사용할 수 있다.
 -   ! 기호는 타입스크립트에게 이 값이 null이 될 수 있다는 건 알지만 이 시점에는 절대 null이 아니라고 알려준다. 그래서 이 값이 null이 아니라고 100% 확신하는 경우에만 !를 사용해야 한다. 위 예제에서는 확실히 연결이 완료된 경우이므로 !를 쓴다.
 -   submitHandler는 ref가 처리되어 연결이 완료되기 전에는 호출될 수 없기 때문에 '!'를 사용한다.
+
+<br><br>
+
+## 5) Todo 제거하기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/b8f0c1e0c3fe4a0126c55784268ab091e612256d
+
+<br><br>
+
+## 6) Context API 및 TypeScript
