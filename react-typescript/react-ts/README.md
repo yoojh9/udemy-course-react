@@ -41,3 +41,43 @@ export default Todos;
 
 -   리액트와 타입스크립트로 함수형 컴포넌트를 만드려면 React.FC 타입을 함수형 컴포넌트의 상수 옆에 사용한다. 그리고 <{}> 붙인 다음 그 괄호 사이에 필요한 형태의
     props를 정의한다.
+
+<br><br>
+
+## 2) 데이터 모델 추가하기
+
+-   \/models/todo.ts
+
+```typescript
+class Todo {
+    id: string;
+    text: string;
+
+    constructor(todoText: string) {
+        this.id = new Date().toISOString();
+        this.text = todoText;
+    }
+}
+
+export default Todo;
+```
+
+<br>
+
+-   \/components/Todos.tsx
+
+```typescript
+import Todo from "../models/todo";
+
+const Todos: React.FC<{ items: Todo[] }> = (props) => {
+    return (
+        <ul>
+            {props.items.map((item) => (
+                <li key={item.id}>{item.text}</li>
+            ))}
+        </ul>
+    );
+};
+
+export default Todos;
+```
