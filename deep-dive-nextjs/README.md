@@ -1,5 +1,9 @@
 # Deep Dive NextJS
 
+이 프로젝트는 node 16 버전에서 오류 없이 작동하므로 .nvmrc 파일에 노드 버전 16으로 명시함
+
+<br>
+
 ## 1) Meetup 목록 출력하기
 
 -   https://github.com/yoojh9/udemy-course-react/commit/54f882c90cfedbf85bd452d43585515137de5207
@@ -342,3 +346,10 @@ const HomePage = (props) => {
     );
 };
 ```
+
+<br><br>
+
+## 12) Next.js 프로젝트 배포하기
+
+-   vercel을 이용해서 호스팅을 해보자.
+-   Vercel은 NextJS 애플리케이션을 위한 훌륭한 호스팅 프로바이더이다.
