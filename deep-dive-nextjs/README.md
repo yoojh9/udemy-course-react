@@ -217,7 +217,7 @@ export const getServerSideProps = async (context) => {
 
 <br><br>
 
-## 7) getStaticProps를 사용하여 URL param 가져오기
+## 7) getStaticPaths를 사용하여 URL param 가져오기
 
 -   만약 /[meetupId]와 같은 동적 페이지라면 getStaticPaths라는 새로운 함수를 사용한다.
 -   동적 페이지이기 때문에 NextJS는 어떤 ID 값이 pre-generate 페이지가 되어야 되는지 알아야 한다.
