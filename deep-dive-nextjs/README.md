@@ -311,3 +311,34 @@ $ npm install mongodb
 ## 10) Meetup Detail 데이터 가져오기
 
 -   https://github.com/yoojh9/udemy-course-react/commit/d9e188df766dece5051d22799ba8dafa6724372b
+
+<br><br>
+
+## 11) Head meta 데이터 추가
+
+-   검색엔진에 중요한 description meta tag를 추가한다.
+-   next/head 라이브러리를 사용한다.
+
+```javascript
+// pages/index.js
+
+import Head from "next/head";
+import { MongoClient } from "mongodb";
+import MeetupList from "../components/meetups/MeetupList";
+import { Fragment } from "react";
+
+const HomePage = (props) => {
+    return (
+        <Fragment>
+            <Head>
+                <title>React Meetup</title>
+                <meta
+                    name="description"
+                    content="Browse a huge list of highly active React meetups"
+                ></meta>
+            </Head>
+            <MeetupList meetups={props.meetups} />
+        </Fragment>
+    );
+};
+```
