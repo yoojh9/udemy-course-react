@@ -353,3 +353,7 @@ const HomePage = (props) => {
 
 -   vercel을 이용해서 호스팅을 해보자.
 -   Vercel은 NextJS 애플리케이션을 위한 훌륭한 호스팅 프로바이더이다.
+-   Vercel과 mongodb 연동을 위해 mongodb > Newtork Access 에서 IP는 0.0.0.0으로 변경
+-   빌드 성공 후 배포가 완료 되면 이렇게 호스팅이 완료된 걸 확인할 수 있음.
+
+<img src="./image.png" width="600px">
