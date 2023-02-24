@@ -305,3 +305,9 @@ $ npm install mongodb
 -   [데이터 저장](https://github.com/yoojh9/udemy-course-react/commit/bab08b307b4cecbc077932a8fc854833a9fa17ff)
 
 -   [데이터 가져오기](https://github.com/yoojh9/udemy-course-react/commit/24bd08c50dcffd1fe021247373564a0508620118)
+
+<br><br>
+
+## 10) Meetup Detail 데이터 가져오기
+
+-   https://github.com/yoojh9/udemy-course-react/commit/d9e188df766dece5051d22799ba8dafa6724372b
